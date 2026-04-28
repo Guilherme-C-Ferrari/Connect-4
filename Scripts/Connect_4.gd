@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var buttons = $GridContainer.get_children()
+@onready var buttons = $Tabuleiro/HBoxContainer.get_children()
 @onready var label_resultado = $Menu/Label
 @onready var botao_jogo = $Menu/Button
 

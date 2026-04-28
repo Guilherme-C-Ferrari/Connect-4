@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://hb6xsbmplec2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsv3i"]
+size = Vector2(703, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06s0e"]
+size = Vector2(6, 599)
+
+[node name="Tabuleiro" type="Node2D" unique_id=1874611820]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=333397015]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=307479920]
+position = Vector2(349.5, 610)
+shape = SubResource("RectangleShape2D_gsv3i")
+
+[node name="CollisionShapeWall1" type="CollisionShape2D" parent="StaticBody2D" unique_id=1571735437]
+position = Vector2(0, 300)
+shape = SubResource("RectangleShape2D_06s0e")
+
+[node name="CollisionShapeWall2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1717698989]
+position = Vector2(100, 300)
+shape = SubResource("RectangleShape2D_06s0e")
+
+[node name="CollisionShapeWall3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1310055082]
+position = Vector2(200, 300)
+shape = SubResource("RectangleShape2D_06s0e")
+
+[node name="CollisionShapeWall4" type="CollisionShape2D" parent="StaticBody2D" unique_id=512851349]
+position = Vector2(300, 300)
+shape = SubResource("RectangleShape2D_06s0e")
+
+[node name="CollisionShapeWall5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1368612358]
+position = Vector2(400, 300)
+shape = SubResource("RectangleShape2D_06s0e")
+
+[node name="CollisionShapeWall6" type="CollisionShape2D" parent="StaticBody2D" unique_id=164595073]
+position = Vector2(500, 300)
+shape = SubResource("RectangleShape2D_06s0e")
+
+[node name="CollisionShapeWall7" type="CollisionShape2D" parent="StaticBody2D" unique_id=2140015744]
+position = Vector2(600, 300)
+shape = SubResource("RectangleShape2D_06s0e")
+
+[node name="CollisionShapeWall8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1476962825]
+position = Vector2(700, 300)
+shape = SubResource("RectangleShape2D_06s0e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1408727474]
+offset_right = 700.0
+offset_bottom = 600.0
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=241258833]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=2029666395]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=633531048]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button4" type="Button" parent="HBoxContainer" unique_id=1468404237]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button5" type="Button" parent="HBoxContainer" unique_id=591408300]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button6" type="Button" parent="HBoxContainer" unique_id=79150619]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button7" type="Button" parent="HBoxContainer" unique_id=1989991595]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
