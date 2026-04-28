@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var buttons = $Tabuleiro/HBoxContainer.get_children()
+@onready var botoes = $TabuleiroFisico/HBoxContainer.get_children()
 @onready var label_resultado = $Menu/Label
 @onready var botao_jogo = $Menu/Button
 
@@ -8,16 +8,24 @@ var ficha = preload("res://Cenas/ficha.tscn")
 var tabuleiro = preload("res://Scripts/Tabuleiro.gd")
 var minimax = preload("res://Scripts/Minimax.gd")
 
-var tabuleiro_jogo := Tabuleiro.new()
+var tabuleiro_logico := Tabuleiro.new()
 var ia := Minimax.new()
 
 func _ready() -> void:
-	# Implementar
-	pass
+	for i in range(botoes.size()):
+		botoes[i].pressed.connect(_on_coluna_pressionada.bind(i))
 
-func _on_coluna_pressionada():
-	# Implementar
-	pass
+func _on_coluna_pressionada(coluna):
+	criar_ficha_fisica(coluna)
+
+func criar_ficha_fisica(coluna_index):
+	var nova_ficha = ficha.instantiate()
+	add_child(nova_ficha)
+	
+	var botao = $TabuleiroFisico/HBoxContainer.get_child(coluna_index)
+	var posX = $TabuleiroFisico.position.x + botao.position.x + (botao.size.x / 2)
+	var posY = $TabuleiroFisico/HBoxContainer.position.y - 50 
+	nova_ficha.position = Vector2(posX, posY)
 
 func jogar() -> bool:
 	# Implementar
@@ -34,15 +42,15 @@ func fim_jogo(resultado):
 	botao_jogo.text = "Novo Jogo"
 
 func habilitar_botoes():
-	for button in buttons:
-		button.disabled = false
+	for botao in botoes:
+		botao.disabled = false
 
 func desabilitar_botoes():
-	for button in buttons:
-		button.disabled = true
+	for botao in botoes:
+		botao.disabled = true
 
 func reset_game():
-	tabuleiro_jogo = Tabuleiro.new()
+	tabuleiro_logico = Tabuleiro.new()
 	# Implementar
 	pass
 

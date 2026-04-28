@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://tn6vxrapl3os"]
 
 [ext_resource type="Script" uid="uid://c2iokblal8w34" path="res://Scripts/Connect_4.gd" id="1_ab3bw"]
-[ext_resource type="PackedScene" uid="uid://hb6xsbmplec2" path="res://Cenas/tabuleiro.tscn" id="2_8hrk4"]
+[ext_resource type="PackedScene" uid="uid://hb6xsbmplec2" path="res://Cenas/tabuleiro_fisico.tscn" id="2_8hrk4"]
 [ext_resource type="PackedScene" uid="uid://c5wtxuugx7sjs" path="res://Cenas/menu.tscn" id="3_apj2i"]
 
 [node name="Main" type="Node2D" unique_id=732579793]
 script = ExtResource("1_ab3bw")
 
-[node name="Tabuleiro" parent="." unique_id=459050932 instance=ExtResource("2_8hrk4")]
+[node name="TabuleiroFisico" parent="." unique_id=459050932 instance=ExtResource("2_8hrk4")]
 position = Vector2(290.00003, 100.000015)
 scale = Vector2(0.85, 0.85)
 
