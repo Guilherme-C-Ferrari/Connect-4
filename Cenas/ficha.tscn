@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bukdk3xh7xwg4"]
+
+[ext_resource type="Texture2D" uid="uid://3bun0mt4cle1" path="res://Sprites/white-circle.png" id="1_vo28c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t18qp"]
+radius = 32.01562
+
+[node name="Ficha" type="RigidBody2D" unique_id=1155902229]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=190187700]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_vo28c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=891932140]
+shape = SubResource("CircleShape2D_t18qp")

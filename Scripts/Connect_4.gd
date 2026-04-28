@@ -4,8 +4,10 @@ extends Node2D
 @onready var label_resultado = $Menu/Label
 @onready var botao_jogo = $Menu/Button
 
-var minimax = preload("res://Scripts/Minimax.gd")
+var ficha = preload("res://Cenas/ficha.tscn")
 var tabuleiro = preload("res://Scripts/Tabuleiro.gd")
+var minimax = preload("res://Scripts/Minimax.gd")
+
 var tabuleiro_jogo := Tabuleiro.new()
 var ia := Minimax.new()
 
@@ -13,7 +15,7 @@ func _ready() -> void:
 	# Implementar
 	pass
 
-func _on_button_click():
+func _on_coluna_pressionada():
 	# Implementar
 	pass
 
