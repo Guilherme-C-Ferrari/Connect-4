@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://hb6xsbmplec2"]
+
+[node name="GridContainer" type="GridContainer" unique_id=1870847374]
+offset_right = 700.0
+offset_bottom = 600.0
+columns = 7
+
+[node name="Button" type="Button" parent="." unique_id=241258833]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="." unique_id=2029666395]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="." unique_id=633531048]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button4" type="Button" parent="." unique_id=1468404237]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button5" type="Button" parent="." unique_id=591408300]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button6" type="Button" parent="." unique_id=79150619]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button7" type="Button" parent="." unique_id=1989991595]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
