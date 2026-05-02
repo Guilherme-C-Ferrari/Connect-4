@@ -17,24 +17,27 @@ func _ready() -> void:
 	reset_game()
 	desabilitar_botoes()
 
-func _on_coluna_pressionada(coluna):
-	if jogar(coluna):
-		criar_ficha_fisica(coluna)
+func _on_coluna_pressionada(coluna: int) -> void:
+	var jogador = jogo.jogador_atual()
+	if jogar(coluna, jogador):
+		criar_ficha_fisica(coluna, jogador)
 	for linha in jogo.tabuleiro:
 		print(linha)
 	print("----------------------------------------")
 
-func criar_ficha_fisica(coluna_index):
+func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
-	add_child(nova_ficha)
-	
 	var botao = $TabuleiroFisico/HBoxContainer.get_child(coluna_index)
 	var posX = botao.global_position.x + (botao.size.x / 2) - 5
 	var posY = botao.global_position.y - 150 
+	
+	nova_ficha.get_node("FichaAmarela").visible = (jogador == jogo.JOGADOR_AMARELO)
+	nova_ficha.get_node("FichaVermelha").visible = (jogador == jogo.JOGADOR_VERMELHO)
+	
 	nova_ficha.position = Vector2(posX, posY)
+	add_child(nova_ficha)
 
-func jogar(movimento: int) -> bool:
-	var jogador = jogo.jogador_atual()
+func jogar(movimento: int, jogador: String) -> bool:
 	if jogo.jogada(movimento):
 		var avaliacao: float = jogo.avaliar()
 		if avaliacao != 0.5:
@@ -49,24 +52,24 @@ func jogada_maquina():
 	# Implementar
 	pass
 
-func fim_jogo(resultado):
+func fim_jogo(resultado: String) -> void:
 	label_resultado.text = resultado
 	desabilitar_botoes()
 	botao_jogo.text = "Novo Jogo"
 
-func habilitar_botoes():
+func habilitar_botoes() -> void:
 	for botao in botoes:
 		botao.disabled = false
 
-func desabilitar_botoes():
+func desabilitar_botoes() -> void:
 	for botao in botoes:
 		botao.disabled = true
 
-func reset_game():
+func reset_game() -> void:
 	jogo = Tabuleiro.new()
 	get_tree().call_group("Fichas", "queue_free")
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	if botao_jogo.text == "Novo Jogo":
 		# botao_jogo.text = "Jogada IA"
 		label_resultado.text = ""

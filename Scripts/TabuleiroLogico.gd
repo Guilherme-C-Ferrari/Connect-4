@@ -23,7 +23,7 @@ func alternar_jogador() -> void:
 	self.jogador = JOGADOR_AMARELO if self.jogador == JOGADOR_VERMELHO else JOGADOR_VERMELHO
 
 func empate() -> bool:
-	for coluna in self.tabuleiro:
+	for coluna in range(COLUNAS):
 		if self.tabuleiro[0][coluna] == SEM_JOGADA:
 			return false
 	return true
