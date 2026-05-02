@@ -1,8 +1,8 @@
 extends Node2D
 
 @onready var botoes = $TabuleiroFisico/HBoxContainer.get_children()
-@onready var label_resultado = $Menu/Label
-@onready var botao_jogo = $Menu/Button
+@onready var label_resultado = $CanvasLayer/Menu/%LabelPrincipal
+@onready var botao_jogo = $CanvasLayer/Menu/%BotaoMenu1
 
 var ficha = preload("res://Cenas/ficha.tscn")
 var tabuleiro_logico = preload("res://Scripts/TabuleiroLogico.gd")
