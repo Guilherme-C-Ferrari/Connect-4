@@ -3,7 +3,7 @@ class_name Tabuleiro
 
 const JOGADOR_AMARELO = "A"
 const JOGADOR_VERMELHO = "V"
-const SEM_JOGADA = ""
+const SEM_JOGADA = "-"
 
 const LINHAS = 6
 const COLUNAS = 7

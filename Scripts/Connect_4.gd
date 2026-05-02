@@ -5,18 +5,21 @@ extends Node2D
 @onready var botao_jogo = $Menu/Button
 
 var ficha = preload("res://Cenas/ficha.tscn")
-var tabuleiro = preload("res://Scripts/Tabuleiro.gd")
+var tabuleiro_logico = preload("res://Scripts/TabuleiroLogico.gd")
 var minimax = preload("res://Scripts/Minimax.gd")
 
-var tabuleiro_logico := Tabuleiro.new()
+var jogo := Tabuleiro.new()
 var ia := Minimax.new()
 
 func _ready() -> void:
 	for i in range(botoes.size()):
 		botoes[i].pressed.connect(_on_coluna_pressionada.bind(i))
+	reset_game()
+	desabilitar_botoes()
 
 func _on_coluna_pressionada(coluna):
-	criar_ficha_fisica(coluna)
+	if jogar(coluna):
+		criar_ficha_fisica(coluna)
 
 func criar_ficha_fisica(coluna_index):
 	var nova_ficha = ficha.instantiate()
@@ -27,10 +30,12 @@ func criar_ficha_fisica(coluna_index):
 	var posY = botao.global_position.y - 150 
 	nova_ficha.position = Vector2(posX, posY)
 
-func jogar() -> bool:
-	# Implementar
-	pass
-	return false
+func jogar(movimento: int) -> bool:
+	var jogador = jogo.jogador_atual()
+	if jogo.jogada(movimento):
+		return true
+	else:
+		return false
 
 func jogada_maquina():
 	# Implementar
@@ -50,13 +55,12 @@ func desabilitar_botoes():
 		botao.disabled = true
 
 func reset_game():
-	tabuleiro_logico = Tabuleiro.new()
-	# Implementar
-	pass
+	jogo = Tabuleiro.new()
+	get_tree().call_group("Fichas", "queue_free")
 
 func _on_button_pressed():
 	if botao_jogo.text == "Novo Jogo":
-		botao_jogo.text = "Jogada IA"
+		# botao_jogo.text = "Jogada IA"
 		label_resultado.text = ""
 		habilitar_botoes()
 		reset_game()

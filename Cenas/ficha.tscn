@@ -5,7 +5,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_t18qp"]
 radius = 42.0119
 
-[node name="Ficha" type="RigidBody2D" unique_id=1155902229]
+[node name="Ficha" type="RigidBody2D" unique_id=1155902229 groups=["Fichas"]]
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=190187700]
 scale = Vector2(0.33, 0.33)
