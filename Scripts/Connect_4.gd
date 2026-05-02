@@ -20,6 +20,9 @@ func _ready() -> void:
 func _on_coluna_pressionada(coluna):
 	if jogar(coluna):
 		criar_ficha_fisica(coluna)
+	for linha in jogo.tabuleiro:
+		print(linha)
+	print("----------------------------------------")
 
 func criar_ficha_fisica(coluna_index):
 	var nova_ficha = ficha.instantiate()
@@ -33,6 +36,11 @@ func criar_ficha_fisica(coluna_index):
 func jogar(movimento: int) -> bool:
 	var jogador = jogo.jogador_atual()
 	if jogo.jogada(movimento):
+		var avaliacao: float = jogo.avaliar()
+		if avaliacao != 0.5:
+			fim_jogo(jogador + " venceu!")
+		elif jogo.empate():
+			fim_jogo("EMPATOU")
 		return true
 	else:
 		return false
