@@ -23,8 +23,8 @@ func criar_ficha_fisica(coluna_index):
 	add_child(nova_ficha)
 	
 	var botao = $TabuleiroFisico/HBoxContainer.get_child(coluna_index)
-	var posX = $TabuleiroFisico.position.x + botao.position.x + (botao.size.x / 2)
-	var posY = $TabuleiroFisico/HBoxContainer.position.y - 50 
+	var posX = botao.global_position.x + (botao.size.x / 2) - 5
+	var posY = botao.global_position.y - 150 
 	nova_ficha.position = Vector2(posX, posY)
 
 func jogar() -> bool:
