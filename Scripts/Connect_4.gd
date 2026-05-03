@@ -14,10 +14,10 @@ var ia := Minimax.new()
 func _ready() -> void:
 	for i in range(botoes.size()):
 		botoes[i].pressed.connect(_on_coluna_pressionada.bind(i))
-	reset_game()
 	desabilitar_botoes()
 
 func _on_coluna_pressionada(coluna: int) -> void:
+	desabilitar_botoes()
 	var jogador = jogo.jogador_atual()
 	if jogar(coluna, jogador):
 		criar_ficha_fisica(coluna, jogador)
@@ -68,6 +68,7 @@ func desabilitar_botoes() -> void:
 func reset_game() -> void:
 	jogo = Tabuleiro.new()
 	get_tree().call_group("Fichas", "queue_free")
+	get_tree().call_group("Colunas", "reset")
 
 func _on_button_pressed() -> void:
 	if botao_jogo.text == "Novo Jogo":

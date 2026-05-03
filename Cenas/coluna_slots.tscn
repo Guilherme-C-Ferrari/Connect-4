@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b4msqnvgoyj7b"]
+
+[ext_resource type="Script" uid="uid://nafi51y6w2l1" path="res://Scripts/ColunaSlots.gd" id="1_t7j0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy3cp"]
+
+[node name="Coluna" type="Node2D" unique_id=463292554 groups=["Colunas"]]
+script = ExtResource("1_t7j0u")
+
+[node name="Area2D_Linha1" type="Area2D" parent="." unique_id=1095665846]
+position = Vector2(0, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Linha1" unique_id=2049439805]
+shape = SubResource("RectangleShape2D_yy3cp")
+
+[node name="Area2D_Linha2" type="Area2D" parent="." unique_id=1220264890]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Linha2" unique_id=1286876091]
+shape = SubResource("RectangleShape2D_yy3cp")
+
+[node name="Area2D_Linha3" type="Area2D" parent="." unique_id=1599046503]
+position = Vector2(0, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Linha3" unique_id=1650538460]
+shape = SubResource("RectangleShape2D_yy3cp")
+
+[node name="Area2D_Linha4" type="Area2D" parent="." unique_id=1245052892]
+position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Linha4" unique_id=70897054]
+shape = SubResource("RectangleShape2D_yy3cp")
+
+[node name="Area2D_Linha5" type="Area2D" parent="." unique_id=548667995]
+position = Vector2(0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Linha5" unique_id=501033313]
+shape = SubResource("RectangleShape2D_yy3cp")
+
+[node name="Area2D_Linha6" type="Area2D" parent="." unique_id=1400780669]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Linha6" unique_id=587546749]
+shape = SubResource("RectangleShape2D_yy3cp")

@@ -15,4 +15,5 @@ scale = Vector2(0.85, 0.85)
 
 [node name="Menu" parent="CanvasLayer" unique_id=1558306628 instance=ExtResource("3_apj2i")]
 
+[connection signal="jogada_liberada" from="TabuleiroFisico" to="." method="habilitar_botoes"]
 [connection signal="menu_botao_pressionado" from="CanvasLayer/Menu" to="." method="_on_button_pressed"]
