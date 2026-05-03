@@ -11,6 +11,8 @@ func _ready() -> void:
 
 func _on_ficha_entrou(body, area) -> void:
 	if body is RigidBody2D:
+		if body.freeze:
+			return
 		body.freeze = true
 		body.global_position = area.global_position
 		
@@ -22,7 +24,6 @@ func _on_ficha_entrou(body, area) -> void:
 		if proxima_area:
 			shape = proxima_area.get_node("CollisionShape2D")
 			shape.set_deferred("disabled", false)
-		
 		emit_signal("ficha_alocada")
 
 func reset() -> void:

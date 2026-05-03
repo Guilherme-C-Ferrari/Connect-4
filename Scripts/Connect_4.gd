@@ -21,9 +21,9 @@ func _on_coluna_pressionada(coluna: int) -> void:
 	var jogador = jogo.jogador_atual()
 	if jogar(coluna, jogador):
 		criar_ficha_fisica(coluna, jogador)
-	for linha in jogo.tabuleiro:
-		print(linha)
-	print("----------------------------------------")
+	#for linha in jogo.tabuleiro:
+		#print(linha)
+	#print("----------------------------------------")
 
 func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
