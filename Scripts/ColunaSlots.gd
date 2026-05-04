@@ -13,8 +13,9 @@ func _on_ficha_entrou(body, area) -> void:
 	if body is RigidBody2D:
 		if body.freeze:
 			return
-		body.freeze = true
-		body.global_position = area.global_position
+
+		body.set_deferred("freeze", true)
+		body.set_deferred("global_position", area.global_position)
 		
 		var shape = area.get_node("CollisionShape2D")
 		shape.set_deferred("disabled", true)
