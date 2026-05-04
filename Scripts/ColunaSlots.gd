@@ -9,11 +9,10 @@ func _ready() -> void:
 			area.body_entered.connect(_on_ficha_entrou.bind(area))
 			area.get_node("CollisionShape2D").disabled = (area.name != "Area2D_Linha1")
 
-func _on_ficha_entrou(body, area) -> void:
+func _on_ficha_entrou(body: RigidBody2D, area: Area2D) -> void:
 	if body is RigidBody2D:
 		if body.freeze:
 			return
-
 		body.set_deferred("freeze", true)
 		body.set_deferred("global_position", area.global_position)
 		
