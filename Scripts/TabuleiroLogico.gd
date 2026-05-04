@@ -44,11 +44,11 @@ func jogadas_possiveis() -> Array:
 			jogadas.append(coluna)
 	return jogadas
 
-func movimentar(movimento: int, jogador: String) -> Tabuleiro:
+func movimentar(movimento: int, p_jogador: String) -> Tabuleiro:
 	var novo_tabuleiro = self.duplicate(true)
 	for linha in range((LINHAS - 1), -1, -1):
 		if novo_tabuleiro.tabuleiro[linha][movimento] == SEM_JOGADA:
-			novo_tabuleiro.tabuleiro[linha][movimento] = jogador
+			novo_tabuleiro.tabuleiro[linha][movimento] = p_jogador
 			break
 	return novo_tabuleiro
 
