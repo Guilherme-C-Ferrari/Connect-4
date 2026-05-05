@@ -30,7 +30,7 @@ func _on_coluna_pressionada(coluna: int) -> void:
 func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
 	var botao = $TabuleiroFisico/HBoxContainer.get_child(coluna_index)
-	var posX = botao.global_position.x + (botao.size.x / 2) - 5
+	var posX = botao.global_position.x + (botao.size.x / 2) - 6
 	var posY = botao.global_position.y - 150 
 	
 	nova_ficha.get_node("FichaAmarela").visible = (jogador == jogo.JOGADOR_AMARELO)
@@ -60,8 +60,10 @@ func fim_jogo(resultado: String) -> void:
 	botao_jogo.text = "Novo Jogo"
 
 func habilitar_botoes() -> void:
-	for botao in botoes:
-		botao.disabled = false
+	for i in range(botoes.size()):
+		var botao = botoes[i]
+		if jogo.valida_jogada(i):
+			botao.disabled = false
 
 func desabilitar_botoes() -> void:
 	for botao in botoes:
@@ -71,12 +73,12 @@ func reset_game() -> void:
 	jogo = Tabuleiro.new()
 	get_tree().call_group("Fichas", "queue_free")
 	get_tree().call_group("Colunas", "reset")
+	habilitar_botoes()
 
 func _on_button_pressed() -> void:
 	if botao_jogo.text == "Novo Jogo":
 		# botao_jogo.text = "Jogada IA"
 		label_resultado.text = ""
-		habilitar_botoes()
 		reset_game()
 	else:
 		jogada_maquina()
