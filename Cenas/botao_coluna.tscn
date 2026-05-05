@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b5xyucq6hy85g"]
+
+[node name="BotaoColuna" type="Button" unique_id=2114915518]
+modulate = Color(1, 1, 1, 0.50980395)
+size_flags_horizontal = 3
+size_flags_vertical = 3

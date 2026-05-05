@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ck4wvmli7iclf" path="res://Cenas/TabuleiroFisico.gd" id="1_1xbq8"]
 [ext_resource type="PackedScene" uid="uid://b4msqnvgoyj7b" path="res://Cenas/coluna_slots.tscn" id="1_ospg6"]
 [ext_resource type="Script" uid="uid://nafi51y6w2l1" path="res://Scripts/ColunaSlots.gd" id="2_5mjpd"]
+[ext_resource type="Texture2D" uid="uid://bb82vofl1vdbs" path="res://Sprites/Teste.png" id="4_6jsy2"]
+[ext_resource type="PackedScene" uid="uid://b5xyucq6hy85g" path="res://Cenas/botao_coluna.tscn" id="5_16aq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsv3i"]
 size = Vector2(703, 20)
@@ -75,42 +77,33 @@ position = Vector2(550, 50)
 [node name="Coluna7" parent="Slots" unique_id=928132344 instance=ExtResource("1_ospg6")]
 position = Vector2(650, 50)
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1278662922]
+position = Vector2(349.80826, 298.00003)
+scale = Vector2(1.1492699, 1.145)
+texture = ExtResource("4_6jsy2")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1408727474]
 offset_right = 700.0
 offset_bottom = 600.0
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="HBoxContainer" unique_id=241258833]
+[node name="BotaoColuna" parent="HBoxContainer" unique_id=2114915518 instance=ExtResource("5_16aq4")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Button2" type="Button" parent="HBoxContainer" unique_id=2029666395]
+[node name="BotaoColuna2" parent="HBoxContainer" unique_id=1162446330 instance=ExtResource("5_16aq4")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Button3" type="Button" parent="HBoxContainer" unique_id=633531048]
+[node name="BotaoColuna3" parent="HBoxContainer" unique_id=51553668 instance=ExtResource("5_16aq4")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Button4" type="Button" parent="HBoxContainer" unique_id=1468404237]
+[node name="BotaoColuna4" parent="HBoxContainer" unique_id=514435662 instance=ExtResource("5_16aq4")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Button5" type="Button" parent="HBoxContainer" unique_id=591408300]
+[node name="BotaoColuna5" parent="HBoxContainer" unique_id=1774660114 instance=ExtResource("5_16aq4")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Button6" type="Button" parent="HBoxContainer" unique_id=79150619]
+[node name="BotaoColuna6" parent="HBoxContainer" unique_id=1729235342 instance=ExtResource("5_16aq4")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Button7" type="Button" parent="HBoxContainer" unique_id=1989991595]
+[node name="BotaoColuna7" parent="HBoxContainer" unique_id=1422951728 instance=ExtResource("5_16aq4")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3

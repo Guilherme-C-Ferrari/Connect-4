@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var container_fichas = $FichasContainer
 @onready var botoes = $TabuleiroFisico/HBoxContainer.get_children()
 @onready var label_resultado = $CanvasLayer/Menu/%LabelPrincipal
 
@@ -36,7 +37,7 @@ func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	nova_ficha.get_node("FichaVermelha").visible = (jogador == jogo.JOGADOR_VERMELHO)
 	
 	nova_ficha.position = Vector2(posX, posY)
-	add_child(nova_ficha)
+	container_fichas.add_child(nova_ficha)
 
 func jogar(movimento: int, jogador: String) -> bool:
 	if jogo.jogada(movimento):
