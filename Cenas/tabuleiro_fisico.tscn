@@ -78,7 +78,7 @@ position = Vector2(550, 50)
 position = Vector2(650, 50)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1278662922]
-modulate = Color(0.0375, 0.044166666, 0.05, 1)
+modulate = Color(0.0375, 0.041666668, 0.05, 1)
 position = Vector2(349.80826, 298.00003)
 scale = Vector2(1.1492699, 1.145)
 texture = ExtResource("4_6jsy2")
