@@ -29,9 +29,20 @@ func empate() -> bool:
 	return true
 
 func avaliar() -> float:
-	# Implementar
 	var eval: float = 0.5
 	pass
+	#for i in range(LINHAS):
+		#for j in range(COLUNAS):
+			#if i < 3 and j < 4:
+				#if self.tabuleiro[i][j] == self.tabuleiro[i][(j+1)] and self.tabuleiro[i][(j+1)] == self.tabuleiro[i][(j+2)]  self.tabuleiro[i][(j+3)] and self.tabuleiro[i][(j)] != SEM_JOGADA:
+					#eval = 100 if self.tabuleiro[i][j] == self.jogador else -100
+				#if self.tabuleiro[i][j] == self.tabuleiro[(i+1)][j] == self.tabuleiro[(i+2)][j] == self.tabuleiro[(i+3)][j] and self.tabuleiro[i][(j)] != SEM_JOGADA:
+					#eval = 100 if self.tabuleiro[i][j] == self.jogador else -100
+				#if self.tabuleiro[i][j] == self.tabuleiro[(i+1)][j+1] == self.tabuleiro[(i+2)][j+2] == self.tabuleiro[(i+3)][j+3] and self.tabuleiro[i][(j)] != SEM_JOGADA:
+					#eval = 100 if tabuleiro[i][j] == self.jogador else -100
+			#elif i < 3 and j > 2:
+				#if self.tabuleiro[i][j] == self.tabuleiro[(i+1)][j-1] == self.tabuleiro[(i+2)][j-2] == self.tabuleiro[(i+3)][j-3] and self.tabuleiro[i][(j)] != SEM_JOGADA: 
+					#eval = 100 if tabuleiro[i][j] == self.jogador else -100
 	return eval 
 
 func jogador_atual() -> String:

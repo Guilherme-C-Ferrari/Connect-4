@@ -10,8 +10,7 @@ script = ExtResource("1_ab3bw")
 [node name="FichasContainer" type="Node2D" parent="." unique_id=1433860491]
 
 [node name="TabuleiroFisico" parent="." unique_id=459050932 instance=ExtResource("2_8hrk4")]
-position = Vector2(313, 95.99999)
-scale = Vector2(0.85, 0.85)
+position = Vector2(307, 33)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1216710477]
 

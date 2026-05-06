@@ -30,7 +30,7 @@ func _on_coluna_pressionada(coluna: int) -> void:
 func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
 	var botao = $TabuleiroFisico/HBoxContainer.get_child(coluna_index)
-	var posX = botao.global_position.x + (botao.size.x / 2) - 6
+	var posX = botao.global_position.x + (botao.size.x / 2)
 	var posY = botao.global_position.y - 150 
 	
 	nova_ficha.get_node("FichaAmarela").visible = (jogador == jogo.JOGADOR_AMARELO)
