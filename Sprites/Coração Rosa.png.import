@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb82vofl1vdbs"
-path="res://.godot/imported/Teste.png-0e2d66f477396e8a6481de64e93388d6.ctex"
+uid="uid://badccojdecs35"
+path="res://.godot/imported/Coração Rosa.png-a588418451b96a5dac0d64890916046e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Teste.png"
-dest_files=["res://.godot/imported/Teste.png-0e2d66f477396e8a6481de64e93388d6.ctex"]
+source_file="res://Sprites/Coração Rosa.png"
+dest_files=["res://.godot/imported/Coração Rosa.png-a588418451b96a5dac0d64890916046e.ctex"]
 
 [params]
 

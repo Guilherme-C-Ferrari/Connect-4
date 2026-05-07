@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var container_fichas = $FichasContainer
-@onready var botoes = $TabuleiroFisico/HBoxContainer.get_children()
+@onready var container_fichas = $GameContainer/FichasContainer
+@onready var botoes = $GameContainer/TabuleiroFisico/HBoxContainer.get_children()
 @onready var label_resultado = $CanvasLayer/Menu/%LabelPrincipal
 
 var ficha = preload("res://Cenas/ficha.tscn")
@@ -29,14 +29,14 @@ func _on_coluna_pressionada(coluna: int) -> void:
 
 func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
-	var botao = $TabuleiroFisico/HBoxContainer.get_child(coluna_index)
-	var posX = botao.global_position.x + (botao.size.x / 2)
-	var posY = botao.global_position.y - 150 
+	var botao = $GameContainer/TabuleiroFisico/HBoxContainer.get_child(coluna_index)
+	
+	var pos_global = botao.global_position + Vector2(botao.size.x / 2, -150)
+	nova_ficha.position = container_fichas.to_local(pos_global)
 	
 	nova_ficha.get_node("FichaAmarela").visible = (jogador == jogo.JOGADOR_AMARELO)
 	nova_ficha.get_node("FichaVermelha").visible = (jogador == jogo.JOGADOR_VERMELHO)
 	
-	nova_ficha.position = Vector2(posX, posY)
 	container_fichas.add_child(nova_ficha)
 
 func jogar(movimento: int, jogador: String) -> bool:

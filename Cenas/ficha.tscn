@@ -1,24 +1,22 @@
 [gd_scene format=3 uid="uid://bukdk3xh7xwg4"]
 
-[ext_resource type="Texture2D" uid="uid://3bun0mt4cle1" path="res://Sprites/white-circle.png" id="1_vo28c"]
+[ext_resource type="Texture2D" uid="uid://h048w0rmmyve" path="res://Sprites/Coração Amarelo.png" id="1_t18qp"]
+[ext_resource type="Texture2D" uid="uid://d1m6050hnwlu5" path="res://Sprites/Estrela Vermelha.png" id="2_o7hvr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t18qp"]
-radius = 42.0119
+radius = 46.0
 
 [node name="Ficha" type="RigidBody2D" unique_id=1155902229 groups=["Fichas"]]
 metadata/_edit_group_ = true
 
 [node name="FichaAmarela" type="Sprite2D" parent="." unique_id=190187700]
 visible = false
-modulate = Color(1, 0.8666667, 0, 1)
-scale = Vector2(0.33, 0.33)
-texture = ExtResource("1_vo28c")
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_t18qp")
 
 [node name="FichaVermelha" type="Sprite2D" parent="." unique_id=242654346]
-visible = false
-modulate = Color(0.47, 0, 0.07049982, 1)
-scale = Vector2(0.33, 0.33)
-texture = ExtResource("1_vo28c")
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_o7hvr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=891932140]
 shape = SubResource("CircleShape2D_t18qp")

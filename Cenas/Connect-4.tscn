@@ -7,14 +7,21 @@
 [node name="Main" type="Node2D" unique_id=732579793]
 script = ExtResource("1_ab3bw")
 
-[node name="FichasContainer" type="Node2D" parent="." unique_id=1433860491]
+[node name="GameContainer" type="Node2D" parent="." unique_id=183511413]
+position = Vector2(-120, -123)
 
-[node name="TabuleiroFisico" parent="." unique_id=459050932 instance=ExtResource("2_8hrk4")]
-position = Vector2(307, 33)
+[node name="FichasContainer" type="Node2D" parent="GameContainer" unique_id=1433860491]
+
+[node name="TabuleiroFisico" parent="GameContainer" unique_id=459050932 instance=ExtResource("2_8hrk4")]
+position = Vector2(412.5, 166.25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1216710477]
 
 [node name="Menu" parent="CanvasLayer" unique_id=1558306628 instance=ExtResource("3_apj2i")]
 
-[connection signal="jogada_liberada" from="TabuleiroFisico" to="." method="habilitar_botoes"]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1663131829]
+position = Vector2(578, 326)
+zoom = Vector2(0.9, 0.9)
+
+[connection signal="jogada_liberada" from="GameContainer/TabuleiroFisico" to="." method="habilitar_botoes"]
 [connection signal="menu_botao_pressionado" from="CanvasLayer/Menu" to="." method="_on_button_pressed"]
