@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var container_fichas = $GameContainer/FichasContainer
 @onready var botoes = $GameContainer/TabuleiroFisico/HBoxContainer.get_children()
-@onready var label_resultado = $CanvasLayer/Menu/%LabelPrincipal
+@onready var label_resultado = $UI/Menu/%LabelPrincipal
 
 var ficha = preload("res://Cenas/ficha.tscn")
 var tabuleiro_logico = preload("res://Scripts/TabuleiroLogico.gd")
