@@ -13,8 +13,13 @@ func _on_ficha_entrou(body: RigidBody2D, area: Area2D) -> void:
 	if body is RigidBody2D:
 		if body.freeze:
 			return
+		
+		var tween = get_tree().create_tween()
+		tween.set_trans(Tween.TRANS_BOUNCE)
+		tween.set_ease(Tween.EASE_OUT)
+		
 		body.set_deferred("freeze", true)
-		body.set_deferred("global_position", area.global_position)
+		tween.tween_property(body, "global_position", area.global_position, 0.5)
 		
 		var shape = area.get_node("CollisionShape2D")
 		shape.set_deferred("disabled", true)

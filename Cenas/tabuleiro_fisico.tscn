@@ -78,8 +78,7 @@ position = Vector2(550, 50)
 position = Vector2(650, 50)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1278662922]
-visible = false
-position = Vector2(350, 301)
+position = Vector2(350, 300)
 texture = ExtResource("4_16aq4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1408727474]

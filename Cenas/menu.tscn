@@ -49,6 +49,6 @@ text = "Partida De IAs"
 [node name="LabelPrincipal" type="Label" parent="MarginContainer/VBoxContainer" unique_id=607639723]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
 vertical_alignment = 1

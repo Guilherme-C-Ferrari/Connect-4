@@ -21,6 +21,7 @@ func _on_coluna_pressionada(coluna: int) -> void:
 	var jogador = jogo.jogador_atual()
 	if jogar(coluna, jogador):
 		criar_ficha_fisica(coluna, jogador)
+		avaliar_final(jogador)
 	else:
 		habilitar_botoes()
 	for linha in jogo.tabuleiro:
@@ -41,11 +42,6 @@ func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 
 func jogar(movimento: int, jogador: String) -> bool:
 	if jogo.jogada(movimento):
-		var avaliacao: float = jogo.avaliar()
-		if avaliacao != 0.5:
-			fim_jogo(jogador + " venceu!")
-		elif jogo.empate():
-			fim_jogo("EMPATOU")
 		return true
 	else:
 		return false
@@ -54,11 +50,24 @@ func jogada_maquina():
 	# Implementar
 	pass
 
+func avaliar_final(jogador: String) -> void:
+	var avaliacao: float = jogo.avaliar()
+	if avaliacao != 0.5:
+		if avaliacao == 100 or avaliacao == -100:
+			if jogador == "A":
+				fim_jogo("Amarelo Venceu!")
+			elif jogador == "V":
+				fim_jogo("Vermelho Venceu!")
+	elif jogo.empate():
+		fim_jogo("EMPATOU")
+
 func fim_jogo(resultado: String) -> void:
 	label_resultado.text = resultado
 	desabilitar_botoes()
 
 func habilitar_botoes() -> void:
+	if label_resultado.text != "":
+		return
 	for i in range(botoes.size()):
 		var botao = botoes[i]
 		if jogo.valida_jogada(i):
