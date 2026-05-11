@@ -46,18 +46,19 @@ func jogar(movimento: int, jogador: String) -> bool:
 	else:
 		return false
 
-func jogada_maquina():
-	# Implementar
-	pass
+func jogada_maquina() -> void:
+	desabilitar_botoes()
+	var jogador = jogo.jogador_atual()
+	var jogada_ia : Jogada = ia.melhor_jogada(jogo.duplicate(true), jogador, 6)
+	_on_coluna_pressionada(jogada_ia.movimento)
 
 func avaliar_final(jogador: String) -> void:
 	var avaliacao: float = jogo.avaliar()
-	if avaliacao != 0.5:
-		if avaliacao == 100 or avaliacao == -100:
-			if jogador == "A":
-				fim_jogo("Amarelo Venceu!")
-			elif jogador == "V":
-				fim_jogo("Vermelho Venceu!")
+	if abs(avaliacao) == 100:
+		if jogador == "A":
+			fim_jogo("Amarelo Venceu!")
+		elif jogador == "V":
+			fim_jogo("Vermelho Venceu!")
 	elif jogo.empate():
 		fim_jogo("EMPATOU")
 
@@ -88,6 +89,6 @@ func _on_button_pressed(botao: Button) -> void:
 	if botao.name == "BotaoNovoJogo":
 		reset_game()
 	elif botao.name == "BotaoJogadaIA":
-		print("Jogada IA")
+		jogada_maquina()
 	elif botao.name == "BotaoPartidaIA":
 		print("Partida De IAs")

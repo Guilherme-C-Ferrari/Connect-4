@@ -29,7 +29,7 @@ func empate() -> bool:
 	return true
 
 func avaliar() -> float:
-	var eval: float = 0.5
+	var eval: float = 0
 	for i in range(LINHAS):
 		for j in range(COLUNAS):
 			if j < 4:
