@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3bun0mt4cle1"
-path="res://.godot/imported/white-circle.png-b03ba03338602a9430ece0145652966e.ctex"
+uid="uid://dwkqnskhnorov"
+path="res://.godot/imported/BotaoAzul.jpg-58d6b94532be74ae96539e1e5fda1537.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/white-circle.png"
-dest_files=["res://.godot/imported/white-circle.png-b03ba03338602a9430ece0145652966e.ctex"]
+source_file="res://Sprites/BotaoAzul.jpg"
+dest_files=["res://.godot/imported/BotaoAzul.jpg-58d6b94532be74ae96539e1e5fda1537.ctex"]
 
 [params]
 

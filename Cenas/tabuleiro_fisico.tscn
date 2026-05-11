@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ck4wvmli7iclf" path="res://Scripts/TabuleiroFisico.gd" id="1_1xbq8"]
 [ext_resource type="PackedScene" uid="uid://b4msqnvgoyj7b" path="res://Cenas/coluna_slots.tscn" id="1_ospg6"]
 [ext_resource type="Script" uid="uid://nafi51y6w2l1" path="res://Scripts/ColunaSlots.gd" id="2_5mjpd"]
-[ext_resource type="Texture2D" uid="uid://ceifucgq104db" path="res://Sprites/Tabela.png" id="4_16aq4"]
+[ext_resource type="Texture2D" uid="uid://cucv5jven7lh0" path="res://Sprites/TabelaConnect4Azul.png" id="4_16aq4"]
 [ext_resource type="PackedScene" uid="uid://b5xyucq6hy85g" path="res://Cenas/botao_coluna.tscn" id="5_16aq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsv3i"]
@@ -78,7 +78,8 @@ position = Vector2(550, 50)
 position = Vector2(650, 50)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1278662922]
-position = Vector2(350, 300)
+position = Vector2(350.00003, 300)
+scale = Vector2(1.02, 1.02)
 texture = ExtResource("4_16aq4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1408727474]
