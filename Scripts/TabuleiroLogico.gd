@@ -28,27 +28,61 @@ func empate() -> bool:
 			return false
 	return true
 
-func avaliar() -> float:
+func avaliar(param_jogador: String) -> float:
 	var eval: float = 0
+	var conexao: Array = []
+	var valor_conexao
 	for i in range(LINHAS):
 		for j in range(COLUNAS):
 			if j < 4:
-				if self.tabuleiro[i][j] == self.tabuleiro[i][(j+1)] and self.tabuleiro[i][(j+1)] == self.tabuleiro[i][(j+2)] and self.tabuleiro[i][(j+2)] == self.tabuleiro[i][(j+3)] and self.tabuleiro[i][j] != SEM_JOGADA:
-					eval = 100 if self.tabuleiro[i][j] == self.jogador else -100
-					return eval
+				# Horizontal
+				conexao = [self.tabuleiro[i][j], self.tabuleiro[i][(j+1)], self.tabuleiro[i][(j+2)], self.tabuleiro[i][(j+3)]]
+				valor_conexao = avaliar_conexao(conexao, param_jogador)
+				if abs(valor_conexao) >= 100:
+					return valor_conexao
+				eval += valor_conexao
+				
 			if i < 3:
-				if self.tabuleiro[i][j] == self.tabuleiro[(i+1)][j] and self.tabuleiro[(i+1)][j] == self.tabuleiro[(i+2)][j] and self.tabuleiro[(i+2)][j] == self.tabuleiro[(i+3)][j] and self.tabuleiro[i][j] != SEM_JOGADA:
-					eval = 100 if self.tabuleiro[i][j] == self.jogador else -100
-					return eval
+				# Vertical
+				conexao = [self.tabuleiro[i][j], self.tabuleiro[(i+1)][j], self.tabuleiro[(i+2)][j], self.tabuleiro[(i+3)][j]]
+				valor_conexao = avaliar_conexao(conexao, param_jogador)
+				if abs(valor_conexao) >= 100:
+					return valor_conexao
+				eval += valor_conexao
+				
 				if j < 4:
-					if self.tabuleiro[i][j] == self.tabuleiro[(i+1)][(j+1)] and self.tabuleiro[(i+1)][(j+1)] == self.tabuleiro[(i+2)][(j+2)] and self.tabuleiro[(i+2)][(j+2)] == self.tabuleiro[(i+3)][(j+3)] and self.tabuleiro[i][j] != SEM_JOGADA:
-						eval = 100 if tabuleiro[i][j] == self.jogador else -100
-						return eval
+					# Diagonal principal
+					conexao = [self.tabuleiro[i][j], self.tabuleiro[(i+1)][(j+1)], self.tabuleiro[(i+2)][(j+2)], self.tabuleiro[(i+3)][(j+3)]]
+					valor_conexao = avaliar_conexao(conexao, param_jogador)
+					if abs(valor_conexao) >= 100:
+						return valor_conexao
+					eval += valor_conexao
+					
 				if j > 2:
-					if self.tabuleiro[i][j] == self.tabuleiro[(i+1)][(j-1)] and self.tabuleiro[(i+1)][(j-1)] == self.tabuleiro[(i+2)][(j-2)] and self.tabuleiro[(i+2)][(j-2)] == self.tabuleiro[(i+3)][(j-3)] and self.tabuleiro[i][j] != SEM_JOGADA:
-						eval = 100 if tabuleiro[i][j] == self.jogador else -100
-						return eval
+					# Diagonal secundária
+					conexao = [self.tabuleiro[i][j], self.tabuleiro[(i+1)][(j-1)], self.tabuleiro[(i+2)][(j-2)], self.tabuleiro[(i+3)][(j-3)]]
+					valor_conexao = avaliar_conexao(conexao, param_jogador)
+					if abs(valor_conexao) >= 100:
+						return valor_conexao
+					eval += valor_conexao 
 	return eval 
+
+func avaliar_conexao(conexao: Array, param_jogador: String) -> float:
+	var eval: float = 0
+	var oponente = JOGADOR_AMARELO if param_jogador == JOGADOR_VERMELHO else JOGADOR_VERMELHO
+	
+	var contabilizacao_jogador = conexao.count(param_jogador)
+	var contabilizacao_oponente = conexao.count(oponente)
+	var contabilizacao_vazio = conexao.count(SEM_JOGADA)
+	
+	if contabilizacao_jogador == 4: eval += 100
+	elif contabilizacao_jogador == 3 and contabilizacao_vazio == 1: eval += 5
+	elif contabilizacao_jogador == 2 and contabilizacao_vazio == 2: eval += 2
+	elif contabilizacao_oponente == 4: eval -= 100
+	elif contabilizacao_oponente == 3 and contabilizacao_vazio == 1: eval -= 5
+	elif contabilizacao_oponente == 2 and contabilizacao_vazio == 2: eval -= 2
+	
+	return eval
 
 func jogador_atual() -> String:
 	return jogador

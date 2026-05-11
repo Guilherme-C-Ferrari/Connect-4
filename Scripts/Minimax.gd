@@ -3,41 +3,49 @@ class_name Minimax
 
 const TABULEIRO = preload("res://Scripts/TabuleiroLogico.gd")
 const JOGADA = preload ("res://Scripts/Jogada.gd")
+const INFINITO: int = 9999
 
 func melhor_jogada(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: int) -> Jogada:
-	var jogada: Jogada = minimax(tabuleiro, jogador, profundidade_maxima, 0)
+	var jogada: Jogada = minimax(tabuleiro, jogador, jogador, profundidade_maxima, 0, -INFINITO, INFINITO)
+	print("-------------------------------------------")
 	return jogada
 
-func minimax(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: int, profundidade: int) -> Jogada:
-	var avaliacao: float = tabuleiro.avaliar()
+func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: String, profundidade_maxima: int, profundidade: int, alfa: int, beta: int) -> Jogada:
+	var avaliacao: float = tabuleiro.avaliar(jogador_inicial)
+	
 	if tabuleiro.empate() or abs(avaliacao) == 100 or profundidade == profundidade_maxima:
 		var jog: Jogada = JOGADA.new(-1, avaliacao)
 		return jog
 		
 	var melhores_jogadas: Array = []
 	var melhor_pontuacao: float
-	if tabuleiro.jogador_atual() == jogador:
+	
+	if tabuleiro.jogador_atual() == jogador_atual:
 		melhor_pontuacao = -INF
 	else:
 		melhor_pontuacao = INF
 		
 	for movimento in tabuleiro.jogadas_possiveis():
-		var novo_tabuleiro: Tabuleiro = tabuleiro.movimentar(movimento, jogador)
-		var novo_jogador: String = tabuleiro.JOGADOR_AMARELO if jogador == tabuleiro.JOGADOR_VERMELHO else tabuleiro.JOGADOR_VERMELHO
-		var jogada: Jogada = minimax(novo_tabuleiro, novo_jogador, profundidade_maxima, profundidade + 1)
+		var novo_tabuleiro: Tabuleiro = tabuleiro.movimentar(movimento, jogador_atual)
 		
+		var novo_jogador: String = tabuleiro.JOGADOR_AMARELO if jogador_atual == tabuleiro.JOGADOR_VERMELHO else tabuleiro.JOGADOR_VERMELHO
+		var jogada: Jogada = minimax(novo_tabuleiro, jogador_inicial, novo_jogador, profundidade_maxima, profundidade + 1, alfa, beta)
 		jogada.movimento = movimento
-		if profundidade == 0:
-			print("JOGADA: ", jogada.movimento, " Avaliacao: ", jogada.avaliacao)
 		
-		# Atualiza a melhor jogada
-		if tabuleiro.jogador_atual() == jogador:
+		if profundidade == 0:
+			print("JOGADA: ", jogada.movimento+1, " Avaliacao: ", jogada.avaliacao)
+		
+		if tabuleiro.jogador_atual() == jogador_atual:
 			if jogada.avaliacao > melhor_pontuacao:
 				melhor_pontuacao = jogada.avaliacao
 				melhores_jogadas = []
 				melhores_jogadas.append(jogada)
 			elif jogada.avaliacao == melhor_pontuacao:
 				melhores_jogadas.append(jogada)
+			
+			#alfa = max(alfa, melhor_pontuacao)
+			#if alfa >= beta:
+				#break
 		else:
 			if jogada.avaliacao < melhor_pontuacao:
 				melhor_pontuacao = jogada.avaliacao
@@ -46,6 +54,8 @@ func minimax(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: int, pr
 			elif jogada.avaliacao == melhor_pontuacao:
 				melhores_jogadas.append(jogada)
 			
-	# Retorna uma dentre as melhores jogadas
+			#beta = min(beta, melhor_pontuacao)
+			#if alfa >= beta:
+				#break
 	melhores_jogadas.shuffle()
 	return melhores_jogadas[0]

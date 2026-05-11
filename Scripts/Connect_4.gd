@@ -19,14 +19,11 @@ func _ready() -> void:
 func _on_coluna_pressionada(coluna: int) -> void:
 	desabilitar_botoes()
 	var jogador = jogo.jogador_atual()
-	if jogar(coluna, jogador):
+	if jogar(coluna):
 		criar_ficha_fisica(coluna, jogador)
 		avaliar_final(jogador)
 	else:
 		habilitar_botoes()
-	for linha in jogo.tabuleiro:
-		print(linha)
-	print("----------------------------------------")
 
 func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
@@ -40,7 +37,7 @@ func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	
 	container_fichas.add_child(nova_ficha)
 
-func jogar(movimento: int, jogador: String) -> bool:
+func jogar(movimento: int) -> bool:
 	if jogo.jogada(movimento):
 		return true
 	else:
@@ -53,7 +50,7 @@ func jogada_maquina() -> void:
 	_on_coluna_pressionada(jogada_ia.movimento)
 
 func avaliar_final(jogador: String) -> void:
-	var avaliacao: float = jogo.avaliar()
+	var avaliacao: float = jogo.avaliar(jogador)
 	if abs(avaliacao) == 100:
 		if jogador == "A":
 			fim_jogo("Amarelo Venceu!")
@@ -69,12 +66,23 @@ func fim_jogo(resultado: String) -> void:
 func habilitar_botoes() -> void:
 	if label_resultado.text != "":
 		return
+	
+	var botao_IA_j = $UI/Menu/%BotaoJogadaIA
+	var botao_IA_p = $UI/Menu/%BotaoPartidaIA
+	botao_IA_j.disabled = false
+	botao_IA_p.disabled = false
+	
 	for i in range(botoes.size()):
 		var botao = botoes[i]
 		if jogo.valida_jogada(i):
 			botao.disabled = false
 
 func desabilitar_botoes() -> void:
+	var botao_IA_j = $UI/Menu/%BotaoJogadaIA
+	var botao_IA_p = $UI/Menu/%BotaoPartidaIA
+	botao_IA_j.disabled = true
+	botao_IA_p.disabled = true
+	
 	for botao in botoes:
 		botao.disabled = true
 
