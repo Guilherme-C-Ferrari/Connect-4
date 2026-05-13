@@ -24,9 +24,6 @@ func _on_coluna_pressionada(coluna: int) -> void:
 		avaliar_final(jogador)
 	else:
 		habilitar_botoes()
-	for linha in jogo.tabuleiro:
-		print(linha)
-	print("--------------------------")
 
 func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
