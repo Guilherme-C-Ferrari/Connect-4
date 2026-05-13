@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bukdk3xh7xwg4"]
 
-[ext_resource type="Texture2D" uid="uid://h048w0rmmyve" path="res://Sprites/Coração Amarelo.png" id="1_t18qp"]
-[ext_resource type="Texture2D" uid="uid://d1m6050hnwlu5" path="res://Sprites/Estrela Vermelha.png" id="2_o7hvr"]
+[ext_resource type="Texture2D" uid="uid://78tx5xo1sg6r" path="res://Sprites/Estrela Roxa.png" id="1_t18qp"]
+[ext_resource type="Texture2D" uid="uid://c1bwhwnf0x4oc" path="res://Sprites/Estrela Azul.png" id="2_t18qp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t18qp"]
 radius = 46.0
@@ -9,14 +9,15 @@ radius = 46.0
 [node name="Ficha" type="RigidBody2D" unique_id=1155902229 groups=["Fichas"]]
 metadata/_edit_group_ = true
 
-[node name="FichaAmarela" type="Sprite2D" parent="." unique_id=190187700]
+[node name="FichaRoxa" type="Sprite2D" parent="." unique_id=190187700]
 visible = false
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("1_t18qp")
 
-[node name="FichaVermelha" type="Sprite2D" parent="." unique_id=242654346]
+[node name="FichaAzul" type="Sprite2D" parent="." unique_id=242654346]
+visible = false
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_o7hvr")
+texture = ExtResource("2_t18qp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=891932140]
 shape = SubResource("CircleShape2D_t18qp")

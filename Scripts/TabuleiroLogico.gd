@@ -1,8 +1,8 @@
 extends Resource
 class_name Tabuleiro
 
-const JOGADOR_AMARELO = "A"
-const JOGADOR_VERMELHO = "V"
+const JOGADOR_ROXO = "R"
+const JOGADOR_AZUL = "A"
 const SEM_JOGADA = "-"
 
 const LINHAS = 6
@@ -17,10 +17,10 @@ func _init():
 		linha.resize(COLUNAS)
 		linha.fill(SEM_JOGADA)
 		tabuleiro.append(linha)
-	self.jogador = JOGADOR_AMARELO
+	self.jogador = JOGADOR_ROXO
 	
 func alternar_jogador() -> void:
-	self.jogador = JOGADOR_AMARELO if self.jogador == JOGADOR_VERMELHO else JOGADOR_VERMELHO
+	self.jogador = JOGADOR_ROXO if self.jogador == JOGADOR_AZUL else JOGADOR_AZUL
 
 func empate() -> bool:
 	for coluna in range(COLUNAS):
@@ -38,7 +38,7 @@ func avaliar(param_jogador: String) -> float:
 				# Horizontal
 				conexao = [self.tabuleiro[i][j], self.tabuleiro[i][(j+1)], self.tabuleiro[i][(j+2)], self.tabuleiro[i][(j+3)]]
 				valor_conexao = avaliar_conexao(conexao, param_jogador)
-				if abs(valor_conexao) >= 100:
+				if abs(valor_conexao) >= 1000:
 					return valor_conexao
 				eval += valor_conexao
 				
@@ -46,7 +46,7 @@ func avaliar(param_jogador: String) -> float:
 				# Vertical
 				conexao = [self.tabuleiro[i][j], self.tabuleiro[(i+1)][j], self.tabuleiro[(i+2)][j], self.tabuleiro[(i+3)][j]]
 				valor_conexao = avaliar_conexao(conexao, param_jogador)
-				if abs(valor_conexao) >= 100:
+				if abs(valor_conexao) >= 1000:
 					return valor_conexao
 				eval += valor_conexao
 				
@@ -54,7 +54,7 @@ func avaliar(param_jogador: String) -> float:
 					# Diagonal principal
 					conexao = [self.tabuleiro[i][j], self.tabuleiro[(i+1)][(j+1)], self.tabuleiro[(i+2)][(j+2)], self.tabuleiro[(i+3)][(j+3)]]
 					valor_conexao = avaliar_conexao(conexao, param_jogador)
-					if abs(valor_conexao) >= 100:
+					if abs(valor_conexao) >= 1000:
 						return valor_conexao
 					eval += valor_conexao
 					
@@ -62,23 +62,23 @@ func avaliar(param_jogador: String) -> float:
 					# Diagonal secundária
 					conexao = [self.tabuleiro[i][j], self.tabuleiro[(i+1)][(j-1)], self.tabuleiro[(i+2)][(j-2)], self.tabuleiro[(i+3)][(j-3)]]
 					valor_conexao = avaliar_conexao(conexao, param_jogador)
-					if abs(valor_conexao) >= 100:
+					if abs(valor_conexao) >= 1000:
 						return valor_conexao
 					eval += valor_conexao 
 	return eval 
 
 func avaliar_conexao(conexao: Array, param_jogador: String) -> float:
 	var eval: float = 0
-	var oponente = JOGADOR_AMARELO if param_jogador == JOGADOR_VERMELHO else JOGADOR_VERMELHO
+	var oponente = JOGADOR_ROXO if param_jogador == JOGADOR_AZUL else JOGADOR_AZUL
 	
 	var contabilizacao_jogador = conexao.count(param_jogador)
 	var contabilizacao_oponente = conexao.count(oponente)
 	var contabilizacao_vazio = conexao.count(SEM_JOGADA)
 	
-	if contabilizacao_jogador == 4: eval += 100
+	if contabilizacao_jogador == 4: eval += 1000
 	elif contabilizacao_jogador == 3 and contabilizacao_vazio == 1: eval += 5
 	elif contabilizacao_jogador == 2 and contabilizacao_vazio == 2: eval += 2
-	elif contabilizacao_oponente == 4: eval -= 100
+	elif contabilizacao_oponente == 4: eval -= 1000
 	elif contabilizacao_oponente == 3 and contabilizacao_vazio == 1: eval -= 5
 	elif contabilizacao_oponente == 2 and contabilizacao_vazio == 2: eval -= 2
 	

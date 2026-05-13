@@ -13,7 +13,9 @@ func melhor_jogada(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: i
 func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: String, profundidade_maxima: int, profundidade: int, alfa: int, beta: int) -> Jogada:
 	var avaliacao: float = tabuleiro.avaliar(jogador_inicial)
 	
-	if tabuleiro.empate() or abs(avaliacao) == 100 or profundidade == profundidade_maxima:
+	if tabuleiro.empate() or abs(avaliacao) == 1000 or profundidade == profundidade_maxima:
+		if abs(avaliacao) == 1000:
+			avaliacao -= profundidade
 		var jog: Jogada = JOGADA.new(-1, avaliacao)
 		return jog
 		
@@ -28,7 +30,7 @@ func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: Strin
 	for movimento in tabuleiro.jogadas_possiveis():
 		var novo_tabuleiro: Tabuleiro = tabuleiro.movimentar(movimento, jogador_atual)
 		
-		var novo_jogador: String = tabuleiro.JOGADOR_AMARELO if jogador_atual == tabuleiro.JOGADOR_VERMELHO else tabuleiro.JOGADOR_VERMELHO
+		var novo_jogador: String = tabuleiro.JOGADOR_ROXO if jogador_atual == tabuleiro.JOGADOR_AZUL else tabuleiro.JOGADOR_AZUL
 		var jogada: Jogada = minimax(novo_tabuleiro, jogador_inicial, novo_jogador, profundidade_maxima, profundidade + 1, alfa, beta)
 		jogada.movimento = movimento
 		

@@ -24,6 +24,9 @@ func _on_coluna_pressionada(coluna: int) -> void:
 		avaliar_final(jogador)
 	else:
 		habilitar_botoes()
+	for linha in jogo.tabuleiro:
+		print(linha)
+	print("--------------------------")
 
 func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
@@ -32,8 +35,8 @@ func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var pos_global = botao.global_position + Vector2(botao.size.x / 2, -150)
 	nova_ficha.position = container_fichas.to_local(pos_global)
 	
-	nova_ficha.get_node("FichaAmarela").visible = (jogador == jogo.JOGADOR_AMARELO)
-	nova_ficha.get_node("FichaVermelha").visible = (jogador == jogo.JOGADOR_VERMELHO)
+	nova_ficha.get_node("FichaRoxa").visible = (jogador == jogo.JOGADOR_ROXO)
+	nova_ficha.get_node("FichaAzul").visible = (jogador == jogo.JOGADOR_AZUL)
 	
 	container_fichas.add_child(nova_ficha)
 
@@ -51,11 +54,11 @@ func jogada_maquina() -> void:
 
 func avaliar_final(jogador: String) -> void:
 	var avaliacao: float = jogo.avaliar(jogador)
-	if abs(avaliacao) == 100:
-		if jogador == "A":
-			fim_jogo("Amarelo Venceu!")
-		elif jogador == "V":
-			fim_jogo("Vermelho Venceu!")
+	if abs(avaliacao) == 1000:
+		if jogador == "R":
+			fim_jogo("Roxo Venceu!")
+		elif jogador == "A":
+			fim_jogo("Azul Venceu!")
 	elif jogo.empate():
 		fim_jogo("EMPATOU")
 
@@ -93,7 +96,7 @@ func reset_game() -> void:
 	get_tree().call_group("Colunas", "reset")
 	habilitar_botoes()
 
-func _on_button_pressed(botao: Button) -> void:
+func _on_button_pressed(botao: TextureButton) -> void:
 	if botao.name == "BotaoNovoJogo":
 		reset_game()
 	elif botao.name == "BotaoJogadaIA":

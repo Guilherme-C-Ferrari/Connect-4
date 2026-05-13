@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwkqnskhnorov"
-path="res://.godot/imported/BotaoAzul.jpg-58d6b94532be74ae96539e1e5fda1537.ctex"
+uid="uid://dkmxekxxc22iu"
+path="res://.godot/imported/BotaoDesativado.png-3104e4f37f05470abf760eb2385995e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BotaoAzul.jpg"
-dest_files=["res://.godot/imported/BotaoAzul.jpg-58d6b94532be74ae96539e1e5fda1537.ctex"]
+source_file="res://Sprites/BotaoDesativado.png"
+dest_files=["res://.godot/imported/BotaoDesativado.png-3104e4f37f05470abf760eb2385995e8.ctex"]
 
 [params]
 

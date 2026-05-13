@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://ck4wvmli7iclf" path="res://Scripts/TabuleiroFisico.gd" id="1_1xbq8"]
 [ext_resource type="PackedScene" uid="uid://b4msqnvgoyj7b" path="res://Cenas/coluna_slots.tscn" id="1_ospg6"]
 [ext_resource type="Script" uid="uid://nafi51y6w2l1" path="res://Scripts/ColunaSlots.gd" id="2_5mjpd"]
-[ext_resource type="Texture2D" uid="uid://cucv5jven7lh0" path="res://Sprites/TabelaConnect4Azul.png" id="4_16aq4"]
+[ext_resource type="Texture2D" uid="uid://dmydjpup13gci" path="res://Sprites/TabelaConnect4.png" id="4_16aq4"]
+[ext_resource type="Texture2D" uid="uid://brmiobqhync42" path="res://Sprites/BackdropTabela.png" id="4_wlxfx"]
 [ext_resource type="PackedScene" uid="uid://b5xyucq6hy85g" path="res://Cenas/botao_coluna.tscn" id="5_16aq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsv3i"]
@@ -77,9 +78,15 @@ position = Vector2(550, 50)
 [node name="Coluna7" parent="Slots" unique_id=928132344 instance=ExtResource("1_ospg6")]
 position = Vector2(650, 50)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1278662922]
-position = Vector2(350.00003, 300)
-scale = Vector2(1.02, 1.02)
+[node name="SombraTabuleiroSprite" type="Sprite2D" parent="." unique_id=1561092945]
+position = Vector2(350.5, 301)
+scale = Vector2(0.51071423, 0.51)
+texture = ExtResource("4_wlxfx")
+region_enabled = true
+
+[node name="TabuleiroSprite" type="Sprite2D" parent="." unique_id=1278662922]
+position = Vector2(350.5, 301)
+scale = Vector2(0.51071423, 0.51)
 texture = ExtResource("4_16aq4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1408727474]
