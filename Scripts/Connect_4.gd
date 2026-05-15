@@ -10,6 +10,7 @@ var minimax = preload("res://Scripts/Minimax.gd")
 
 var jogo := Tabuleiro.new()
 var ia := Minimax.new()
+var thread: Thread
 
 func _ready() -> void:
 	for i in range(botoes.size()):
@@ -24,6 +25,12 @@ func _on_coluna_pressionada(coluna: int) -> void:
 		avaliar_final(jogador)
 	else:
 		habilitar_botoes()
+
+func _on_coluna_pressionada_ia(coluna: int) -> void:
+	var jogador = jogo.jogador_atual()
+	if jogar(coluna):
+		criar_ficha_fisica(coluna, jogador)
+		avaliar_final(jogador)
 
 func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	var nova_ficha = ficha.instantiate()
@@ -44,10 +51,17 @@ func jogar(movimento: int) -> bool:
 		return false
 
 func jogada_maquina() -> void:
-	desabilitar_botoes()
+	ia.finalizar_ia = false
 	var jogador = jogo.jogador_atual()
 	var jogada_ia : Jogada = ia.melhor_jogada(jogo.duplicate(true), jogador, 6)
-	_on_coluna_pressionada(jogada_ia.movimento)
+	call_deferred("finalizar_jogada_ia", jogada_ia.movimento)
+
+func finalizar_jogada_ia(movimento: int) -> void:
+	if thread.is_alive():
+		thread.wait_to_finish()
+	
+	if not ia.finalizar_ia:
+		_on_coluna_pressionada_ia(movimento)
 
 func avaliar_final(jogador: String) -> void:
 	var avaliacao: float = jogo.avaliar(jogador)
@@ -87,6 +101,10 @@ func desabilitar_botoes() -> void:
 		botao.disabled = true
 
 func reset_game() -> void:
+	if thread and thread.is_alive():
+		ia.finalizar_ia = true
+		thread.wait_to_finish()
+	
 	label_resultado.text = ""
 	jogo = Tabuleiro.new()
 	get_tree().call_group("Fichas", "queue_free")
@@ -97,6 +115,8 @@ func _on_button_pressed(botao: TextureButton) -> void:
 	if botao.name == "BotaoNovoJogo":
 		reset_game()
 	elif botao.name == "BotaoJogadaIA":
-		jogada_maquina()
+		desabilitar_botoes()
+		thread = Thread.new()
+		thread.start(jogada_maquina.bind())
 	elif botao.name == "BotaoPartidaIA":
 		print("Partida De IAs")

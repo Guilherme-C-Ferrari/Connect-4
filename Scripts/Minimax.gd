@@ -4,6 +4,7 @@ class_name Minimax
 const TABULEIRO = preload("res://Scripts/TabuleiroLogico.gd")
 const JOGADA = preload ("res://Scripts/Jogada.gd")
 const INFINITO: int = 9999
+var finalizar_ia: bool = false
 
 func melhor_jogada(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: int) -> Jogada:
 	var jogada: Jogada = minimax(tabuleiro, jogador, jogador, profundidade_maxima, 0, -INFINITO, INFINITO)
@@ -13,6 +14,9 @@ func melhor_jogada(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: i
 func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: String, profundidade_maxima: int, profundidade: int, alfa: int, beta: int) -> Jogada:
 	var avaliacao: float = tabuleiro.avaliar(jogador_inicial)
 	
+	if finalizar_ia:
+		var jog: Jogada = JOGADA.new(-1, 0)
+		return jog
 	if tabuleiro.empate() or abs(avaliacao) == 1000 or profundidade == profundidade_maxima:
 		if abs(avaliacao) == 1000:
 			avaliacao -= profundidade
@@ -28,8 +32,9 @@ func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: Strin
 		melhor_pontuacao = INF
 		
 	for movimento in tabuleiro.jogadas_possiveis():
-		var novo_tabuleiro: Tabuleiro = tabuleiro.movimentar(movimento, jogador_atual)
+		if finalizar_ia: break
 		
+		var novo_tabuleiro: Tabuleiro = tabuleiro.movimentar(movimento, jogador_atual)
 		var novo_jogador: String = tabuleiro.JOGADOR_ROXO if jogador_atual == tabuleiro.JOGADOR_AZUL else tabuleiro.JOGADOR_AZUL
 		var jogada: Jogada = minimax(novo_tabuleiro, jogador_inicial, novo_jogador, profundidade_maxima, profundidade + 1, alfa, beta)
 		jogada.movimento = movimento
