@@ -92,6 +92,7 @@ func jogadas_possiveis() -> Array:
 	for coluna in range(COLUNAS):
 		if tabuleiro[0][coluna] == SEM_JOGADA:
 			jogadas.append(coluna)
+	jogadas.shuffle()
 	return jogadas
 
 func movimentar(movimento: int, p_jogador: String) -> Tabuleiro:
