@@ -6,7 +6,7 @@ const JOGADA = preload ("res://Scripts/Jogada.gd")
 const INFINITO: int = 9999
 var finalizar_ia: bool = false
 
-func melhor_jogada(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: int) -> Jogada:
+func definir_melhor_jogada(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: int) -> Jogada:
 	var jogada: Jogada = minimax(tabuleiro, jogador, jogador, profundidade_maxima, 0, -INFINITO, INFINITO)
 	print("-------------------------------------------")
 	return jogada
@@ -23,7 +23,7 @@ func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: Strin
 		var jog: Jogada = JOGADA.new(-1, avaliacao)
 		return jog
 		
-	var melhores_jogadas: Array = []
+	var melhor_jogada: Jogada
 	var melhor_pontuacao: float
 	
 	if tabuleiro.jogador_atual() == jogador_atual:
@@ -45,24 +45,15 @@ func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: Strin
 		if tabuleiro.jogador_atual() == jogador_atual:
 			if jogada.avaliacao > melhor_pontuacao:
 				melhor_pontuacao = jogada.avaliacao
-				melhores_jogadas = []
-				melhores_jogadas.append(jogada)
-			elif jogada.avaliacao == melhor_pontuacao:
-				melhores_jogadas.append(jogada)
-			
+				melhor_jogada = jogada
 			alfa = max(alfa, melhor_pontuacao)
 			if alfa >= beta:
 				break
 		else:
 			if jogada.avaliacao < melhor_pontuacao:
 				melhor_pontuacao = jogada.avaliacao
-				melhores_jogadas = []
-				melhores_jogadas.append(jogada)
-			elif jogada.avaliacao == melhor_pontuacao:
-				melhores_jogadas.append(jogada)
-			
+				melhor_jogada = jogada
 			beta = min(beta, melhor_pontuacao)
 			if alfa >= beta:
 				break
-	# melhores_jogadas.shuffle()
-	return melhores_jogadas[0]
+	return melhor_jogada

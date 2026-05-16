@@ -53,7 +53,7 @@ func jogar(movimento: int) -> bool:
 func jogada_maquina() -> void:
 	ia.finalizar_ia = false
 	var jogador = jogo.jogador_atual()
-	var jogada_ia : Jogada = ia.melhor_jogada(jogo.duplicate(true), jogador, 6)
+	var jogada_ia : Jogada = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 7)
 	call_deferred("finalizar_jogada_ia", jogada_ia.movimento)
 
 func finalizar_jogada_ia(movimento: int) -> void:
