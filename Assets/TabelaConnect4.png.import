@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byexlcay8thnx"
-path="res://.godot/imported/PlanoDeFundo.png-4f9a76c962455fa1c3720522464e4d10.ctex"
+uid="uid://dmydjpup13gci"
+path="res://.godot/imported/TabelaConnect4.png-058e8abc22b4bbb8328e2f98ca5694a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/PlanoDeFundo.png"
-dest_files=["res://.godot/imported/PlanoDeFundo.png-4f9a76c962455fa1c3720522464e4d10.ctex"]
+source_file="res://Assets/TabelaConnect4.png"
+dest_files=["res://.godot/imported/TabelaConnect4.png-058e8abc22b4bbb8328e2f98ca5694a2.ctex"]
 
 [params]
 

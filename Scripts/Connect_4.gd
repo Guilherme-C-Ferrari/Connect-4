@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var container_fichas = $GameContainer/FichasContainer
 @onready var botoes = $GameContainer/TabuleiroFisico/HBoxContainer.get_children()
-@onready var label_resultado = $UI/Menu/%LabelPrincipal
+@onready var label_resultado = $UI/MenuTabuleiro/%LabelPrincipal
 
 var ficha = preload("res://Cenas/ficha.tscn")
 var tabuleiro_logico = preload("res://Scripts/TabuleiroLogico.gd")
@@ -81,8 +81,8 @@ func habilitar_botoes() -> void:
 	if label_resultado.text != "":
 		return
 	
-	var botao_IA_j = $UI/Menu/%BotaoJogadaIA
-	var botao_IA_p = $UI/Menu/%BotaoPartidaIA
+	var botao_IA_j = $UI/MenuTabuleiro/%BotaoJogadaIA
+	var botao_IA_p = $UI/MenuTabuleiro/%BotaoPartidaIA
 	botao_IA_j.disabled = false
 	botao_IA_p.disabled = false
 	
@@ -92,8 +92,8 @@ func habilitar_botoes() -> void:
 			botao.disabled = false
 
 func desabilitar_botoes() -> void:
-	var botao_IA_j = $UI/Menu/%BotaoJogadaIA
-	var botao_IA_p = $UI/Menu/%BotaoPartidaIA
+	var botao_IA_j = $UI/MenuTabuleiro/%BotaoJogadaIA
+	var botao_IA_p = $UI/MenuTabuleiro/%BotaoPartidaIA
 	botao_IA_j.disabled = true
 	botao_IA_p.disabled = true
 	

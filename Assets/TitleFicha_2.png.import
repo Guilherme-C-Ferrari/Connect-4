@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brmiobqhync42"
-path="res://.godot/imported/BackdropTabela.png-588be8f05ce34fe6ee7043902ee79bdf.ctex"
+uid="uid://dudoympmr2mhr"
+path="res://.godot/imported/TitleFicha_2.png-40e80251aea7820eb136539ee22c6edf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BackdropTabela.png"
-dest_files=["res://.godot/imported/BackdropTabela.png-588be8f05ce34fe6ee7043902ee79bdf.ctex"]
+source_file="res://Assets/TitleFicha_2.png"
+dest_files=["res://.godot/imported/TitleFicha_2.png-40e80251aea7820eb136539ee22c6edf.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deyfap76xm2vm"
-path="res://.godot/imported/BotaoHUD.png-5f7cc6b67c1fc0e36d3fc608cb108154.ctex"
+uid="uid://byexlcay8thnx"
+path="res://.godot/imported/PlanoDeFundo.png-e5f8998c6dccbcef3dcb547d90365c17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BotaoHUD.png"
-dest_files=["res://.godot/imported/BotaoHUD.png-5f7cc6b67c1fc0e36d3fc608cb108154.ctex"]
+source_file="res://Assets/PlanoDeFundo.png"
+dest_files=["res://.godot/imported/PlanoDeFundo.png-e5f8998c6dccbcef3dcb547d90365c17.ctex"]
 
 [params]
 

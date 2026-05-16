@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://c5wtxuugx7sjs"]
 
 [ext_resource type="Script" uid="uid://c7u0ldaqvpnw2" path="res://Scripts/Menu.gd" id="1_pveh2"]
-[ext_resource type="Texture2D" uid="uid://deyfap76xm2vm" path="res://Sprites/BotaoHUD.png" id="2_u1n12"]
-[ext_resource type="Texture2D" uid="uid://c1gaxydc216s6" path="res://Sprites/BotaoPressed.png" id="3_kdsmm"]
+[ext_resource type="Texture2D" uid="uid://deyfap76xm2vm" path="res://Assets/BotaoHUD.png" id="2_u1n12"]
+[ext_resource type="Texture2D" uid="uid://c1gaxydc216s6" path="res://Assets/BotaoPressed.png" id="3_kdsmm"]
 [ext_resource type="FontFile" uid="uid://dap6qfcabjepl" path="res://Fontes/NiseSegaSonic.TTF" id="3_vpgfy"]
-[ext_resource type="Texture2D" uid="uid://dwu1dn08yp4hc" path="res://Sprites/BotaoHover.png" id="4_8lfl8"]
-[ext_resource type="Texture2D" uid="uid://dkmxekxxc22iu" path="res://Sprites/BotaoDesativado.png" id="5_plcv4"]
+[ext_resource type="Texture2D" uid="uid://dwu1dn08yp4hc" path="res://Assets/BotaoHover.png" id="4_8lfl8"]
+[ext_resource type="Texture2D" uid="uid://dkmxekxxc22iu" path="res://Assets/BotaoDesativado.png" id="5_plcv4"]
 
-[node name="Menu" type="Control" unique_id=1558306628]
+[node name="MenuTabuleiro" type="Control" unique_id=1558306628]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

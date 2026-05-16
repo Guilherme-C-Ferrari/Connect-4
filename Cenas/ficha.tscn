@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bukdk3xh7xwg4"]
 
-[ext_resource type="Texture2D" uid="uid://78tx5xo1sg6r" path="res://Sprites/Estrela Roxa.png" id="1_t18qp"]
-[ext_resource type="Texture2D" uid="uid://c1bwhwnf0x4oc" path="res://Sprites/Estrela Azul.png" id="2_t18qp"]
+[ext_resource type="Texture2D" uid="uid://78tx5xo1sg6r" path="res://Assets/Estrela Roxa.png" id="1_t18qp"]
+[ext_resource type="Texture2D" uid="uid://c1bwhwnf0x4oc" path="res://Assets/Estrela Azul.png" id="2_t18qp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t18qp"]
 radius = 46.0

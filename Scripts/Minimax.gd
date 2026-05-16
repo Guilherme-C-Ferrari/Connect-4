@@ -50,9 +50,9 @@ func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: Strin
 			elif jogada.avaliacao == melhor_pontuacao:
 				melhores_jogadas.append(jogada)
 			
-			#alfa = max(alfa, melhor_pontuacao)
-			#if alfa >= beta:
-				#break
+			alfa = max(alfa, melhor_pontuacao)
+			if alfa >= beta:
+				break
 		else:
 			if jogada.avaliacao < melhor_pontuacao:
 				melhor_pontuacao = jogada.avaliacao
@@ -61,8 +61,8 @@ func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: Strin
 			elif jogada.avaliacao == melhor_pontuacao:
 				melhores_jogadas.append(jogada)
 			
-			#beta = min(beta, melhor_pontuacao)
-			#if alfa >= beta:
-				#break
-	melhores_jogadas.shuffle()
+			beta = min(beta, melhor_pontuacao)
+			if alfa >= beta:
+				break
+	# melhores_jogadas.shuffle()
 	return melhores_jogadas[0]

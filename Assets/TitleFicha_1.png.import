@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmydjpup13gci"
-path="res://.godot/imported/TabelaConnect4.png-8979790e15ee818dfffa2be13eaeaf6a.ctex"
+uid="uid://bd21oxsdnvapm"
+path="res://.godot/imported/TitleFicha_1.png-c13ca303bbf012c6bbc7f8710abb3863.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/TabelaConnect4.png"
-dest_files=["res://.godot/imported/TabelaConnect4.png-8979790e15ee818dfffa2be13eaeaf6a.ctex"]
+source_file="res://Assets/TitleFicha_1.png"
+dest_files=["res://.godot/imported/TitleFicha_1.png-c13ca303bbf012c6bbc7f8710abb3863.ctex"]
 
 [params]
 

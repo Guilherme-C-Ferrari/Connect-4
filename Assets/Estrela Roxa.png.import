@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1bwhwnf0x4oc"
-path="res://.godot/imported/Estrela Azul.png-c567a74b52dfc1eb033a727e6cf43c7e.ctex"
+uid="uid://78tx5xo1sg6r"
+path="res://.godot/imported/Estrela Roxa.png-19cf17712200bd4704940f13d6e53b0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Estrela Azul.png"
-dest_files=["res://.godot/imported/Estrela Azul.png-c567a74b52dfc1eb033a727e6cf43c7e.ctex"]
+source_file="res://Assets/Estrela Roxa.png"
+dest_files=["res://.godot/imported/Estrela Roxa.png-19cf17712200bd4704940f13d6e53b0c.ctex"]
 
 [params]
 

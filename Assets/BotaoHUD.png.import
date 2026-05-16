@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://78tx5xo1sg6r"
-path="res://.godot/imported/Estrela Roxa.png-71b0a3f82464b40dbed4f1242e37e37a.ctex"
+uid="uid://deyfap76xm2vm"
+path="res://.godot/imported/BotaoHUD.png-1b8bf2524cb17bbe0976d6fbdc653d2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Estrela Roxa.png"
-dest_files=["res://.godot/imported/Estrela Roxa.png-71b0a3f82464b40dbed4f1242e37e37a.ctex"]
+source_file="res://Assets/BotaoHUD.png"
+dest_files=["res://.godot/imported/BotaoHUD.png-1b8bf2524cb17bbe0976d6fbdc653d2e.ctex"]
 
 [params]
 

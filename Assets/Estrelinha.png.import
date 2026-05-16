@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkmxekxxc22iu"
-path="res://.godot/imported/BotaoDesativado.png-3104e4f37f05470abf760eb2385995e8.ctex"
+uid="uid://b2xbg274ii1qw"
+path="res://.godot/imported/Estrelinha.png-64b327cfac3df495096192dc8656a0f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BotaoDesativado.png"
-dest_files=["res://.godot/imported/BotaoDesativado.png-3104e4f37f05470abf760eb2385995e8.ctex"]
+source_file="res://Assets/Estrelinha.png"
+dest_files=["res://.godot/imported/Estrelinha.png-64b327cfac3df495096192dc8656a0f4.ctex"]
 
 [params]
 

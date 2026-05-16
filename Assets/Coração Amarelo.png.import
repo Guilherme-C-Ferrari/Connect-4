@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1m6050hnwlu5"
-path="res://.godot/imported/Estrela Vermelha.png-34de8bfea1053bb797d737b99e1e5617.ctex"
+uid="uid://h048w0rmmyve"
+path="res://.godot/imported/Coração Amarelo.png-c72ccb954eb264e782f0daff1a76ac0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Estrela Vermelha.png"
-dest_files=["res://.godot/imported/Estrela Vermelha.png-34de8bfea1053bb797d737b99e1e5617.ctex"]
+source_file="res://Assets/Coração Amarelo.png"
+dest_files=["res://.godot/imported/Coração Amarelo.png-c72ccb954eb264e782f0daff1a76ac0f.ctex"]
 
 [params]
 

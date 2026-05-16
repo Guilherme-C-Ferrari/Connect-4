@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1gaxydc216s6"
-path="res://.godot/imported/BotaoPressed.png-092076b7fdd97cee9ba37e2e3097bd13.ctex"
+uid="uid://brmiobqhync42"
+path="res://.godot/imported/BackdropTabela.png-b6a8c43b5cc4aa941f25eaee7d0a7cb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BotaoPressed.png"
-dest_files=["res://.godot/imported/BotaoPressed.png-092076b7fdd97cee9ba37e2e3097bd13.ctex"]
+source_file="res://Assets/BackdropTabela.png"
+dest_files=["res://.godot/imported/BackdropTabela.png-b6a8c43b5cc4aa941f25eaee7d0a7cb2.ctex"]
 
 [params]
 

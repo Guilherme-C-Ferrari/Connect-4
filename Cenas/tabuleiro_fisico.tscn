@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://ck4wvmli7iclf" path="res://Scripts/TabuleiroFisico.gd" id="1_1xbq8"]
 [ext_resource type="PackedScene" uid="uid://b4msqnvgoyj7b" path="res://Cenas/coluna_slots.tscn" id="1_ospg6"]
 [ext_resource type="Script" uid="uid://nafi51y6w2l1" path="res://Scripts/ColunaSlots.gd" id="2_5mjpd"]
-[ext_resource type="Texture2D" uid="uid://dmydjpup13gci" path="res://Sprites/TabelaConnect4.png" id="4_16aq4"]
-[ext_resource type="Texture2D" uid="uid://brmiobqhync42" path="res://Sprites/BackdropTabela.png" id="4_wlxfx"]
+[ext_resource type="Texture2D" uid="uid://dmydjpup13gci" path="res://Assets/TabelaConnect4.png" id="4_16aq4"]
+[ext_resource type="Texture2D" uid="uid://brmiobqhync42" path="res://Assets/BackdropTabela.png" id="4_wlxfx"]
 [ext_resource type="PackedScene" uid="uid://b5xyucq6hy85g" path="res://Cenas/botao_coluna.tscn" id="5_16aq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsv3i"]

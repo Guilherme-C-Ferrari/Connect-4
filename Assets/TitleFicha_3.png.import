@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h048w0rmmyve"
-path="res://.godot/imported/Coração Amarelo.png-bd6e313e41fd409c4f4c56db8e744505.ctex"
+uid="uid://8mk2ur5htdf5"
+path="res://.godot/imported/TitleFicha_3.png-af4b4df276a430f57b23689cdcbe8434.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Coração Amarelo.png"
-dest_files=["res://.godot/imported/Coração Amarelo.png-bd6e313e41fd409c4f4c56db8e744505.ctex"]
+source_file="res://Assets/TitleFicha_3.png"
+dest_files=["res://.godot/imported/TitleFicha_3.png-af4b4df276a430f57b23689cdcbe8434.ctex"]
 
 [params]
 

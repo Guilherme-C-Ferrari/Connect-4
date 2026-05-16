@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwu1dn08yp4hc"
-path="res://.godot/imported/BotaoHover.png-1775a253114ec58079731810d1c75baa.ctex"
+uid="uid://d1m6050hnwlu5"
+path="res://.godot/imported/Estrela Vermelha.png-c4cb6138932d89f836c93bf9d30b3c20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BotaoHover.png"
-dest_files=["res://.godot/imported/BotaoHover.png-1775a253114ec58079731810d1c75baa.ctex"]
+source_file="res://Assets/Estrela Vermelha.png"
+dest_files=["res://.godot/imported/Estrela Vermelha.png-c4cb6138932d89f836c93bf9d30b3c20.ctex"]
 
 [params]
 
