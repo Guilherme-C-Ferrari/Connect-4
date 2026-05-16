@@ -82,9 +82,9 @@ func habilitar_botoes() -> void:
 		return
 	
 	var botao_IA_j = $UI/MenuTabuleiro/%BotaoJogadaIA
-	var botao_IA_p = $UI/MenuTabuleiro/%BotaoPartidaIA
+	var voltar_menu = $UI/MenuTabuleiro/%VoltarAoMenu
 	botao_IA_j.disabled = false
-	botao_IA_p.disabled = false
+	voltar_menu.disabled = false
 	
 	for i in range(botoes.size()):
 		var botao = botoes[i]
@@ -93,9 +93,9 @@ func habilitar_botoes() -> void:
 
 func desabilitar_botoes() -> void:
 	var botao_IA_j = $UI/MenuTabuleiro/%BotaoJogadaIA
-	var botao_IA_p = $UI/MenuTabuleiro/%BotaoPartidaIA
+	var voltar_menu = $UI/MenuTabuleiro/%VoltarAoMenu
 	botao_IA_j.disabled = true
-	botao_IA_p.disabled = true
+	voltar_menu.disabled = true
 	
 	for botao in botoes:
 		botao.disabled = true
@@ -118,5 +118,5 @@ func _on_button_pressed(botao: TextureButton) -> void:
 		desabilitar_botoes()
 		thread = Thread.new()
 		thread.start(jogada_maquina.bind())
-	elif botao.name == "BotaoPartidaIA":
-		print("Partida De IAs")
+	elif botao.name == "VoltarAoMenu":
+		print("VoltarAoMenu")

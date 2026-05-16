@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cc5sxbd0yu0hb"]
 
 [ext_resource type="Texture2D" uid="uid://d4n0h5ome1jrp" path="res://Assets/TitleScreen.png" id="1_4ahfv"]
+[ext_resource type="Script" uid="uid://ttk4t1sv1cfs" path="res://Scripts/MenuInicial.gd" id="1_o0k3s"]
 [ext_resource type="SpriteFrames" uid="uid://1yax8n0v5vg6" path="res://FichaEstrelaCadente.tres" id="2_3fhxf"]
 [ext_resource type="Texture2D" uid="uid://dulvdvubo7at7" path="res://Assets/4Pontas.png" id="2_hmei6"]
 [ext_resource type="Texture2D" uid="uid://urdrv81lbwok" path="res://Assets/LogoMENU.png" id="2_sm8o4"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_o0k3s")
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=2017996521]
 layout_mode = 1
