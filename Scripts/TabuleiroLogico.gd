@@ -109,7 +109,7 @@ func valida_jogada(coluna: int) -> bool:
 	else:
 		return false
 
-func jogada(coluna: int) -> bool:
+func fazer_jogada(coluna: int) -> bool:
 	if valida_jogada(coluna):
 		for linha in range((LINHAS - 1), -1, -1):
 			if tabuleiro[linha][coluna] == SEM_JOGADA:

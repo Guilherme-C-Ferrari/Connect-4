@@ -34,7 +34,8 @@ zoom = Vector2(0.9, 0.9)
 
 [node name="MenuTabuleiro" parent="UI" unique_id=1558306628 instance=ExtResource("5_d3v8c")]
 
-[connection signal="jogada_liberada" from="GameContainer/TabuleiroFisico" to="." method="habilitar_botoes"]
+[connection signal="jogada_finalizada" from="GameContainer/TabuleiroFisico" to="." method="iniciar_jogada_IA"]
+[connection signal="tabuleiro_liberado" from="GameContainer/TabuleiroFisico" to="." method="habilitar_botoes"]
 [connection signal="iniciar_novo_jogo" from="UI/MenuTabuleiro" to="." method="reset_game"]
 [connection signal="menu_botao_comeco_pressionado" from="UI/MenuTabuleiro" to="." method="_on_button_comeco_pressed"]
 [connection signal="menu_botao_dificuldade_pressionado" from="UI/MenuTabuleiro" to="." method="_on_button_dificuldade_pressed"]
