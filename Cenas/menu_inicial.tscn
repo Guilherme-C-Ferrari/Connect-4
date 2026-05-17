@@ -190,13 +190,16 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("6_hmei6")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelDeCreditosContainer/PanelContainer" unique_id=72548251]
+[node name="MarginContainer" type="MarginContainer" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect" unique_id=72548251]
 custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
+layout_mode = 0
+offset_top = 350.0
+offset_right = 600.0
+offset_bottom = 500.0
 size_flags_vertical = 8
 theme_override_constants/margin_bottom = 60
 
-[node name="TextureButton" type="TextureButton" parent="PanelDeCreditosContainer/PanelContainer/MarginContainer" unique_id=1008898336]
+[node name="TextureButton" type="TextureButton" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer" unique_id=1008898336]
 layout_mode = 2
 texture_normal = ExtResource("3_o78ah")
 texture_pressed = ExtResource("4_06ruf")
@@ -205,7 +208,7 @@ texture_disabled = ExtResource("6_hmei6")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelDeCreditosContainer/PanelContainer/MarginContainer/TextureButton" unique_id=1278867614]
+[node name="Label" type="Label" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer/TextureButton" unique_id=1278867614]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.356
@@ -224,4 +227,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="ContainerTituloEBotoes/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
 [connection signal="pressed" from="ContainerTituloEBotoes/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
-[connection signal="pressed" from="PanelDeCreditosContainer/PanelContainer/MarginContainer/TextureButton" to="." method="_on_fechar_pressed"]
+[connection signal="pressed" from="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer/TextureButton" to="." method="_on_fechar_pressed"]

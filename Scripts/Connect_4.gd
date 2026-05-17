@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var container_fichas = $GameContainer/FichasContainer
 @onready var botoes = $GameContainer/TabuleiroFisico/HBoxContainer.get_children()
+@onready var container_fichas = $GameContainer/FichasContainer
 @onready var label_resultado = $UI/MenuTabuleiro/%LabelPrincipal
 
 const MENU_INICIAL = "res://Cenas/menu_inicial.tscn"
@@ -10,9 +10,12 @@ var ficha = preload("res://Cenas/ficha.tscn")
 var tabuleiro_logico = preload("res://Scripts/TabuleiroLogico.gd")
 var minimax = preload("res://Scripts/Minimax.gd")
 
+var thread: Thread
 var jogo := Tabuleiro.new()
 var ia := Minimax.new()
-var thread: Thread
+var modo_de_jogo : int = 1 # 1 = P x P, 2 = P X IA, 3 = IA X IA
+var dificuldade_ia : int = 1 # 1 = fácil, 2 = médio, 3 = difícil
+var comeco : int = 1 # 1 = player começa, 2 = IA começa
 
 func _ready() -> void:
 	ResourceLoader.load_threaded_request(MENU_INICIAL)
@@ -53,7 +56,7 @@ func jogar(movimento: int) -> bool:
 	else:
 		return false
 
-func jogada_maquina() -> void:
+func calcular_jogada_maquina() -> void:
 	ia.finalizar_ia = false
 	var jogador = jogo.jogador_atual()
 	var jogada_ia : Jogada = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 7)
@@ -83,19 +86,12 @@ func fim_jogo(resultado: String) -> void:
 func habilitar_botoes() -> void:
 	if label_resultado.text != "":
 		return
-	
-	var botao_IA_j = $UI/MenuTabuleiro/%BotaoJogadaIA
-	botao_IA_j.disabled = false
-	
 	for i in range(botoes.size()):
 		var botao = botoes[i]
 		if jogo.valida_jogada(i):
 			botao.disabled = false
 
 func desabilitar_botoes() -> void:
-	var botao_IA_j = $UI/MenuTabuleiro/%BotaoJogadaIA
-	botao_IA_j.disabled = true
-	
 	for botao in botoes:
 		botao.disabled = true
 
@@ -111,13 +107,23 @@ func reset_game() -> void:
 	habilitar_botoes()
 
 func _on_button_pressed(botao: TextureButton) -> void:
-	if botao.name == "BotaoNovoJogo":
-		reset_game()
-	elif botao.name == "VoltarAoMenu":
-		reset_game()
-		var cena_carregada = ResourceLoader.load_threaded_get(MENU_INICIAL)
-		get_tree().change_scene_to_packed(cena_carregada)
-	elif botao.name == "BotaoJogadaIA":
-		desabilitar_botoes()
-		thread = Thread.new()
-		thread.start(jogada_maquina.bind())
+	match botao.name:
+		"BotaoNovoJogo":
+			reset_game()
+		"VoltarAoMenu":
+			reset_game()
+			var cena_carregada = ResourceLoader.load_threaded_get(MENU_INICIAL)
+			get_tree().change_scene_to_packed(cena_carregada)
+		"BotaoJogadaIA":
+			desabilitar_botoes()
+			thread = Thread.new()
+			thread.start(calcular_jogada_maquina.bind())
+
+func _on_button_modo_pressed(botao: TextureButton) -> void:
+	pass
+
+func _on_button_dificuldade_pressed(botao: TextureButton) -> void:
+	pass
+
+func _on_button_comeco_pressed(botao: TextureButton) -> void:
+	pass
