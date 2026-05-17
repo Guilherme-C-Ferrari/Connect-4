@@ -20,24 +20,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o0k3s")
 
-[node name="Fundo" type="TextureRect" parent="." unique_id=2017996521]
+[node name="ContainerFundo" type="AspectRatioContainer" parent="." unique_id=736701944]
 layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fundo" type="TextureRect" parent="ContainerFundo" unique_id=2017996521]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 2
 texture = ExtResource("1_4ahfv")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=858988935]
+[node name="ContainerMargem1" type="MarginContainer" parent="." unique_id=858988935]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1399540779]
+[node name="TextureRect" type="TextureRect" parent="ContainerMargem1" unique_id=1399540779]
 layout_mode = 2
 texture = ExtResource("2_hmei6")
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1242554429]
+[node name="ContainerMargem2" type="MarginContainer" parent="." unique_id=1242554429]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -46,11 +53,11 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2" unique_id=469599780]
+[node name="TextureRect" type="TextureRect" parent="ContainerMargem2" unique_id=469599780]
 layout_mode = 2
 texture = ExtResource("2_hmei6")
 
-[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=73898470]
+[node name="ContainerMargem3" type="MarginContainer" parent="." unique_id=73898470]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -59,11 +66,11 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer3" unique_id=181849151]
+[node name="TextureRect" type="TextureRect" parent="ContainerMargem3" unique_id=181849151]
 layout_mode = 2
 texture = ExtResource("2_hmei6")
 
-[node name="MarginContainer4" type="MarginContainer" parent="." unique_id=1594629892]
+[node name="ContainerMargem4" type="MarginContainer" parent="." unique_id=1594629892]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -75,18 +82,18 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer4" unique_id=1153973874]
+[node name="TextureRect" type="TextureRect" parent="ContainerMargem4" unique_id=1153973874]
 layout_mode = 2
 texture = ExtResource("2_hmei6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=204087913]
+[node name="EstrelaCadenteAnimacao" type="AnimatedSprite2D" parent="." unique_id=204087913]
 position = Vector2(575, 325)
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_3fhxf")
 autoplay = "default"
 frame_progress = 0.49689734
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1908246680]
+[node name="ContainerTituloEBotoes" type="CenterContainer" parent="." unique_id=1908246680]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -100,12 +107,12 @@ offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1155734802]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContainerTituloEBotoes" unique_id=1155734802]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Titulo" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=1713854005]
+[node name="Titulo" type="TextureRect" parent="ContainerTituloEBotoes/VBoxContainer" unique_id=1713854005]
 custom_minimum_size = Vector2(500, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -113,7 +120,7 @@ texture = ExtResource("2_sm8o4")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Jogar" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=32652871]
+[node name="Jogar" type="TextureButton" parent="ContainerTituloEBotoes/VBoxContainer" unique_id=32652871]
 custom_minimum_size = Vector2(200, 90)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -124,7 +131,7 @@ texture_disabled = ExtResource("6_hmei6")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="LabelJogar" type="Label" parent="CenterContainer/VBoxContainer/Jogar" unique_id=1729462409]
+[node name="LabelJogar" type="Label" parent="ContainerTituloEBotoes/VBoxContainer/Jogar" unique_id=1729462409]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 9.0
@@ -136,7 +143,7 @@ text = "Jogar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Creditos" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=33597327]
+[node name="Creditos" type="TextureButton" parent="ContainerTituloEBotoes/VBoxContainer" unique_id=33597327]
 custom_minimum_size = Vector2(200, 90)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -147,7 +154,7 @@ texture_disabled = ExtResource("6_hmei6")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="LabelCreditos" type="Label" parent="CenterContainer/VBoxContainer/Creditos" unique_id=764906482]
+[node name="LabelCreditos" type="Label" parent="ContainerTituloEBotoes/VBoxContainer/Creditos" unique_id=764906482]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 7.0
@@ -158,3 +165,63 @@ theme_override_font_sizes/font_size = 25
 text = "Creditos"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PanelDeCreditosContainer" type="CenterContainer" parent="." unique_id=1968163956]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelDeCreditosContainer" unique_id=434721652]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelDeCreditosContainer/PanelContainer" unique_id=1455964214]
+layout_mode = 2
+texture = ExtResource("6_hmei6")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelDeCreditosContainer/PanelContainer" unique_id=72548251]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 60
+
+[node name="TextureButton" type="TextureButton" parent="PanelDeCreditosContainer/PanelContainer/MarginContainer" unique_id=1008898336]
+layout_mode = 2
+texture_normal = ExtResource("3_o78ah")
+texture_pressed = ExtResource("4_06ruf")
+texture_hover = ExtResource("5_3fhxf")
+texture_disabled = ExtResource("6_hmei6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelDeCreditosContainer/PanelContainer/MarginContainer/TextureButton" unique_id=1278867614]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.356
+anchor_top = 0.128
+anchor_right = 0.642
+anchor_bottom = 0.896
+offset_left = -0.6000061
+offset_top = -1.5200005
+offset_right = 3.7999878
+offset_bottom = 6.3600006
+theme_override_fonts/font = ExtResource("7_06ruf")
+theme_override_font_sizes/font_size = 25
+text = "Fechar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ContainerTituloEBotoes/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="ContainerTituloEBotoes/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="PanelDeCreditosContainer/PanelContainer/MarginContainer/TextureButton" to="." method="_on_fechar_pressed"]

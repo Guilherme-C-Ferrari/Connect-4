@@ -4,6 +4,8 @@ extends Node2D
 @onready var botoes = $GameContainer/TabuleiroFisico/HBoxContainer.get_children()
 @onready var label_resultado = $UI/MenuTabuleiro/%LabelPrincipal
 
+const MENU_INICIAL = "res://Cenas/menu_inicial.tscn"
+
 var ficha = preload("res://Cenas/ficha.tscn")
 var tabuleiro_logico = preload("res://Scripts/TabuleiroLogico.gd")
 var minimax = preload("res://Scripts/Minimax.gd")
@@ -13,6 +15,7 @@ var ia := Minimax.new()
 var thread: Thread
 
 func _ready() -> void:
+	ResourceLoader.load_threaded_request(MENU_INICIAL)
 	for i in range(botoes.size()):
 		botoes[i].pressed.connect(_on_coluna_pressionada.bind(i))
 	desabilitar_botoes()
@@ -82,9 +85,7 @@ func habilitar_botoes() -> void:
 		return
 	
 	var botao_IA_j = $UI/MenuTabuleiro/%BotaoJogadaIA
-	var voltar_menu = $UI/MenuTabuleiro/%VoltarAoMenu
 	botao_IA_j.disabled = false
-	voltar_menu.disabled = false
 	
 	for i in range(botoes.size()):
 		var botao = botoes[i]
@@ -93,9 +94,7 @@ func habilitar_botoes() -> void:
 
 func desabilitar_botoes() -> void:
 	var botao_IA_j = $UI/MenuTabuleiro/%BotaoJogadaIA
-	var voltar_menu = $UI/MenuTabuleiro/%VoltarAoMenu
 	botao_IA_j.disabled = true
-	voltar_menu.disabled = true
 	
 	for botao in botoes:
 		botao.disabled = true
@@ -114,9 +113,11 @@ func reset_game() -> void:
 func _on_button_pressed(botao: TextureButton) -> void:
 	if botao.name == "BotaoNovoJogo":
 		reset_game()
+	elif botao.name == "VoltarAoMenu":
+		reset_game()
+		var cena_carregada = ResourceLoader.load_threaded_get(MENU_INICIAL)
+		get_tree().change_scene_to_packed(cena_carregada)
 	elif botao.name == "BotaoJogadaIA":
 		desabilitar_botoes()
 		thread = Thread.new()
 		thread.start(jogada_maquina.bind())
-	elif botao.name == "VoltarAoMenu":
-		print("VoltarAoMenu")

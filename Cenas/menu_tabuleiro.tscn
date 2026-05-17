@@ -54,26 +54,6 @@ text = "Novo Jogo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BotaoJogadaIA" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=668874813]
-unique_name_in_owner = true
-layout_mode = 2
-texture_normal = ExtResource("2_u1n12")
-texture_pressed = ExtResource("3_kdsmm")
-texture_hover = ExtResource("4_8lfl8")
-texture_disabled = ExtResource("5_plcv4")
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/BotaoJogadaIA" unique_id=2057042806]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 16.0
-offset_right = 370.0
-offset_bottom = 166.0
-theme_override_fonts/font = ExtResource("3_vpgfy")
-theme_override_font_sizes/font_size = 40
-text = "Jogada IA"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="VoltarAoMenu" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1379040262]
 unique_name_in_owner = true
 layout_mode = 2
@@ -82,7 +62,7 @@ texture_pressed = ExtResource("3_kdsmm")
 texture_hover = ExtResource("4_8lfl8")
 texture_disabled = ExtResource("5_plcv4")
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VoltarAoMenu" unique_id=451640272]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VoltarAoMenu" unique_id=451640272]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 18.0
@@ -92,6 +72,26 @@ theme_override_fonts/font = ExtResource("3_vpgfy")
 theme_override_font_sizes/font_size = 40
 text = "Voltar Ao
 Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotaoJogadaIA" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=668874813]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("2_u1n12")
+texture_pressed = ExtResource("3_kdsmm")
+texture_hover = ExtResource("4_8lfl8")
+texture_disabled = ExtResource("5_plcv4")
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/BotaoJogadaIA" unique_id=2057042806]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 16.0
+offset_right = 370.0
+offset_bottom = 166.0
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 40
+text = "Jogada IA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
