@@ -2,7 +2,10 @@ extends Node2D
 
 @onready var botoes = $GameContainer/TabuleiroFisico/HBoxContainer.get_children()
 @onready var container_fichas = $GameContainer/FichasContainer
-@onready var label_resultado = $UI/MenuTabuleiro/%LabelPrincipal
+@onready var label_principal = $UI/MenuTabuleiro/%LabelPrincipal
+@onready var painel_modo = $UI/MenuTabuleiro/PanelDeModoContainer
+@onready var painel_dificuldade = $UI/MenuTabuleiro/PanelDeDificuldadeContainer
+@onready var painel_comeco = $UI/MenuTabuleiro/PanelDeComecoContainer
 
 const MENU_INICIAL = "res://Cenas/menu_inicial.tscn"
 
@@ -15,10 +18,11 @@ var jogo := Tabuleiro.new()
 var ia := Minimax.new()
 var modo_de_jogo : int = 1 # 1 = P x P, 2 = P X IA, 3 = IA X IA
 var dificuldade_ia : int = 1 # 1 = fácil, 2 = médio, 3 = difícil
-var comeco : int = 1 # 1 = player começa, 2 = IA começa
+var comecoIA : int = 1 # 1 = player começa, 2 = IA começa
 
 func _ready() -> void:
 	ResourceLoader.load_threaded_request(MENU_INICIAL)
+	label_principal.text = "Modo\nconfigurado:\nPlayer x ia\n\nClique em\nConfigurar Jogo\nPara Alterar"
 	for i in range(botoes.size()):
 		botoes[i].pressed.connect(_on_coluna_pressionada.bind(i))
 	desabilitar_botoes()
@@ -73,18 +77,18 @@ func avaliar_final(jogador: String) -> void:
 	var avaliacao: float = jogo.avaliar(jogador)
 	if abs(avaliacao) == 1000:
 		if jogador == "R":
-			fim_jogo("Roxo Venceu!")
+			fim_jogo("Roxo\nVenceu!")
 		elif jogador == "A":
-			fim_jogo("Azul Venceu!")
+			fim_jogo("Azul\nVenceu!")
 	elif jogo.empate():
 		fim_jogo("EMPATOU")
 
 func fim_jogo(resultado: String) -> void:
-	label_resultado.text = resultado
+	label_principal.text = resultado
 	desabilitar_botoes()
 
 func habilitar_botoes() -> void:
-	if label_resultado.text != "":
+	if label_principal.text == "Roxo\nVenceu!" or label_principal.text == "Azul\nVenceu!":
 		return
 	for i in range(botoes.size()):
 		var botao = botoes[i]
@@ -100,7 +104,8 @@ func reset_game() -> void:
 		ia.finalizar_ia = true
 		thread.wait_to_finish()
 	
-	label_resultado.text = ""
+	label_principal.text = ""
+	label_principal.add_theme_font_size_override("font_size", 20)
 	jogo = Tabuleiro.new()
 	get_tree().call_group("Fichas", "queue_free")
 	get_tree().call_group("Colunas", "reset")
@@ -109,7 +114,13 @@ func reset_game() -> void:
 func _on_button_pressed(botao: TextureButton) -> void:
 	match botao.name:
 		"BotaoNovoJogo":
-			reset_game()
+			if modo_de_jogo == 1:
+				painel_comeco.visible = true;
+			else:
+				reset_game()
+		"ConfigurarJogo":
+			label_principal.text = ""
+			painel_modo.visible = true; 
 		"VoltarAoMenu":
 			reset_game()
 			var cena_carregada = ResourceLoader.load_threaded_get(MENU_INICIAL)
@@ -121,12 +132,16 @@ func _on_button_pressed(botao: TextureButton) -> void:
 
 func _on_button_modo_pressed(botao: TextureButton) -> void:
 	match botao.name:
-		"PlayerXPlayer":
+		"PlayerXIA":
 			modo_de_jogo = 1
-		"PlyerXIA":
+		"PlayerXPlayer":
 			modo_de_jogo = 2
 		"IAXIA":
 			modo_de_jogo = 3
+	
+	painel_modo.visible = false; 
+	if modo_de_jogo != 2:
+		painel_dificuldade.visible = true; 
 
 func _on_button_dificuldade_pressed(botao: TextureButton) -> void:
 	match botao.name:
@@ -136,10 +151,12 @@ func _on_button_dificuldade_pressed(botao: TextureButton) -> void:
 			dificuldade_ia = 2
 		"Dificil":
 			dificuldade_ia = 3
+	painel_dificuldade.visible = false; 
 
 func _on_button_comeco_pressed(botao: TextureButton) -> void:
 	match botao.name:
 		"Primeiro":
-			comeco = 1
+			comecoIA = 1
 		"Segundo":
-			comeco = 2
+			comecoIA = 2
+	painel_comeco.visible = false;

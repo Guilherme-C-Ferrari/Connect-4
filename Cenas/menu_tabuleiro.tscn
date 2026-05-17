@@ -39,9 +39,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -169.0
+offset_top = -137.5
 offset_right = 535.0
-offset_bottom = 414.0
+offset_bottom = 450.5
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_constants/margin_left = 135
@@ -71,6 +71,27 @@ text = "Novo Jogo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ConfigurarJogo" type="TextureButton" parent="MarginContainerBotoes/VBoxContainer" unique_id=268766333]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("2_u1n12")
+texture_pressed = ExtResource("3_kdsmm")
+texture_hover = ExtResource("4_8lfl8")
+texture_disabled = ExtResource("5_plcv4")
+
+[node name="Label" type="Label" parent="MarginContainerBotoes/VBoxContainer/ConfigurarJogo" unique_id=1205022968]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 18.0
+offset_right = 376.0
+offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 40
+text = "Configurar
+Jogo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VoltarAoMenu" type="TextureButton" parent="MarginContainerBotoes/VBoxContainer" unique_id=1379040262]
 unique_name_in_owner = true
 layout_mode = 2
@@ -89,14 +110,6 @@ theme_override_fonts/font = ExtResource("3_vpgfy")
 theme_override_font_sizes/font_size = 40
 text = "Voltar Ao
 Menu"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LabelPrincipal" type="Label" parent="MarginContainerBotoes/VBoxContainer" unique_id=607639723]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_vpgfy")
-theme_override_font_sizes/font_size = 35
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -158,21 +171,21 @@ theme_override_constants/margin_right = 50
 layout_mode = 2
 theme_override_constants/separation = 70
 
-[node name="Label" type="Label" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=1743208034]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_vpgfy")
-theme_override_font_sizes/font_size = 15
-text = "Jogue contra seu amigo 
-alternando entre jogadores."
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Label2" type="Label" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=28456476]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_vpgfy")
 theme_override_font_sizes/font_size = 15
 text = "Jogue contra uma IA
 em diferentes dificuldades."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=1743208034]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Jogue contra seu amigo 
+alternando entre jogadores."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -200,35 +213,6 @@ theme_override_constants/margin_top = 100
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="PlayerXPlayer" type="TextureButton" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=936113100]
-custom_minimum_size = Vector2(150, 100)
-layout_mode = 2
-texture_normal = ExtResource("2_u1n12")
-texture_pressed = ExtResource("3_kdsmm")
-texture_hover = ExtResource("4_8lfl8")
-texture_disabled = ExtResource("5_plcv4")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer/PlayerXPlayer" unique_id=1617070155]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.356
-anchor_top = 0.128
-anchor_right = 0.642
-anchor_bottom = 0.896
-offset_left = -43.399994
-offset_top = 10.2
-offset_right = 46.699997
-offset_bottom = -12.600006
-theme_override_fonts/font = ExtResource("3_vpgfy")
-theme_override_font_sizes/font_size = 15
-text = "Player
-X
-Player"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="PlayerXIA" type="TextureButton" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=1895436826]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
@@ -255,6 +239,35 @@ theme_override_font_sizes/font_size = 15
 text = "Player
 X
 IA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerXPlayer" type="TextureButton" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=936113100]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_u1n12")
+texture_pressed = ExtResource("3_kdsmm")
+texture_hover = ExtResource("4_8lfl8")
+texture_disabled = ExtResource("5_plcv4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer/PlayerXPlayer" unique_id=1617070155]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.356
+anchor_top = 0.128
+anchor_right = 0.642
+anchor_bottom = 0.896
+offset_left = -43.399994
+offset_top = 10.2
+offset_right = 46.699997
+offset_bottom = -12.600006
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Player
+X
+Player"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -519,8 +532,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 160
-theme_override_constants/margin_right = 80
+theme_override_constants/margin_top = 175
+theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer2" unique_id=1496161736]
 layout_mode = 2
@@ -538,7 +551,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_vpgfy")
 theme_override_font_sizes/font_size = 15
-text = "Segunda a jogar"
+text = "Segundo a jogar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -550,24 +563,58 @@ anchor_bottom = 1.0
 offset_right = 293.0
 grow_vertical = 2
 size_flags_vertical = 8
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 120
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 125
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3" unique_id=1402791838]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 30
 
-[node name="Primeiro" type="TextureButton" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=1703523582]
+[node name="CenterContainer" type="CenterContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=1310673828]
+custom_minimum_size = Vector2(175, 125)
+layout_mode = 2
+
+[node name="Primeiro" type="TextureButton" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer/CenterContainer" unique_id=1703523582]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("8_pbp2j")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Segundo" type="TextureButton" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=282511552]
+[node name="CenterContainer2" type="CenterContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=583978081]
+custom_minimum_size = Vector2(175, 125)
+layout_mode = 2
+
+[node name="Segundo" type="TextureButton" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer/CenterContainer2" unique_id=282511552]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("9_fiyln")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1194231414]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -158.0
+offset_right = 260.0
+grow_vertical = 0
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=591472859]
+layout_mode = 2
+
+[node name="LabelPrincipal" type="Label" parent="MarginContainer/PanelContainer" unique_id=607639723]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
