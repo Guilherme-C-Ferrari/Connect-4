@@ -129,7 +129,17 @@ func _on_button_modo_pressed(botao: TextureButton) -> void:
 			modo_de_jogo = 3
 
 func _on_button_dificuldade_pressed(botao: TextureButton) -> void:
-	pass
+	match botao.name:
+		"Facil":
+			dificuldade_ia = 1
+		"Medio":
+			dificuldade_ia = 2
+		"Dificil":
+			dificuldade_ia = 3
 
 func _on_button_comeco_pressed(botao: TextureButton) -> void:
-	pass
+	match botao.name:
+		"Primeiro":
+			comeco = 1
+		"Segundo":
+			comeco = 2

@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://dap6qfcabjepl" path="res://Fontes/NiseSegaSonic.TTF" id="3_vpgfy"]
 [ext_resource type="Texture2D" uid="uid://dwu1dn08yp4hc" path="res://Assets/BotaoHover.png" id="4_8lfl8"]
 [ext_resource type="Texture2D" uid="uid://dkmxekxxc22iu" path="res://Assets/BotaoDesativado.png" id="5_plcv4"]
+[ext_resource type="Texture2D" uid="uid://78tx5xo1sg6r" path="res://Assets/Estrela Roxa.png" id="8_pbp2j"]
+[ext_resource type="Texture2D" uid="uid://c1bwhwnf0x4oc" path="res://Assets/Estrela Azul.png" id="9_fiyln"]
 
 [node name="MenuTabuleiro" type="Control" unique_id=1558306628]
 layout_mode = 3
@@ -131,7 +133,7 @@ offset_left = -147.5
 offset_right = 147.5
 offset_bottom = 40.0
 grow_horizontal = 2
-theme_override_constants/margin_top = 55
+theme_override_constants/margin_top = 65
 
 [node name="Label" type="Label" parent="PanelDeModoContainer/PanelContainer/NinePatchRect/MarginContainer1" unique_id=1489901113]
 layout_mode = 2
@@ -284,3 +286,288 @@ X
 IA"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PanelDeDificuldadeContainer" type="CenterContainer" parent="." unique_id=1331817449]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelDeDificuldadeContainer" unique_id=532780928]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelDeDificuldadeContainer/PanelContainer" unique_id=808059975]
+layout_mode = 2
+texture = ExtResource("5_plcv4")
+
+[node name="MarginContainer1" type="MarginContainer" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect" unique_id=158025095]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.5
+offset_right = 147.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 65
+
+[node name="Label" type="Label" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer1" unique_id=1361861014]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 30
+text = "Dificuldade Da IA"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect" unique_id=1442621151]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer2" unique_id=1990895403]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Label" type="Label" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=255465722]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Modo de jogo recomendado."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=1442973993]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "IA mais simplificada mas ainda
+perspicaz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=256096805]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Modo de jogo para iniciantes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect" unique_id=2134663543]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 40.0
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer3" unique_id=2137371966]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Dificil" type="TextureButton" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=1491488211]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_u1n12")
+texture_pressed = ExtResource("3_kdsmm")
+texture_hover = ExtResource("4_8lfl8")
+texture_disabled = ExtResource("5_plcv4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer/Dificil" unique_id=1256653954]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.356
+anchor_top = 0.128
+anchor_right = 0.642
+anchor_bottom = 0.896
+offset_left = -43.399994
+offset_top = 10.2
+offset_right = 46.699997
+offset_bottom = -12.600006
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Dificil"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Medio" type="TextureButton" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=282722326]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_u1n12")
+texture_pressed = ExtResource("3_kdsmm")
+texture_hover = ExtResource("4_8lfl8")
+texture_disabled = ExtResource("5_plcv4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer/Medio" unique_id=96539766]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.356
+anchor_top = 0.128
+anchor_right = 0.642
+anchor_bottom = 0.896
+offset_left = -43.399994
+offset_top = 10.2
+offset_right = 46.699997
+offset_bottom = -12.600006
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Medio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Facil" type="TextureButton" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=81049483]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_u1n12")
+texture_pressed = ExtResource("3_kdsmm")
+texture_hover = ExtResource("4_8lfl8")
+texture_disabled = ExtResource("5_plcv4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelDeDificuldadeContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer/Facil" unique_id=459639431]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.356
+anchor_top = 0.128
+anchor_right = 0.642
+anchor_bottom = 0.896
+offset_left = -43.399994
+offset_top = 10.2
+offset_right = 46.699997
+offset_bottom = -12.600006
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Facil"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelDeComecoContainer" type="CenterContainer" parent="." unique_id=1651109539]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelDeComecoContainer" unique_id=1487970485]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelDeComecoContainer/PanelContainer" unique_id=694913390]
+layout_mode = 2
+texture = ExtResource("5_plcv4")
+
+[node name="MarginContainer1" type="MarginContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect" unique_id=160117961]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.5
+offset_right = 147.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 65
+
+[node name="Label" type="Label" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer1" unique_id=686083446]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 30
+text = "Escolha"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect" unique_id=1684375823]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_right = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer2" unique_id=1496161736]
+layout_mode = 2
+theme_override_constants/separation = 140
+
+[node name="Label" type="Label" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=1382989171]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Primeiro a jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=2113877528]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Segunda a jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect" unique_id=750708015]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 293.0
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3" unique_id=1402791838]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 50
+
+[node name="Primeiro" type="TextureButton" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=1703523582]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+texture_normal = ExtResource("8_pbp2j")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Segundo" type="TextureButton" parent="PanelDeComecoContainer/PanelContainer/NinePatchRect/MarginContainer3/VBoxContainer" unique_id=282511552]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+texture_normal = ExtResource("9_fiyln")
+ignore_texture_size = true
+stretch_mode = 5
