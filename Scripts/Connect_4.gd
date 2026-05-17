@@ -120,7 +120,13 @@ func _on_button_pressed(botao: TextureButton) -> void:
 			thread.start(calcular_jogada_maquina.bind())
 
 func _on_button_modo_pressed(botao: TextureButton) -> void:
-	pass
+	match botao.name:
+		"PlayerXPlayer":
+			modo_de_jogo = 1
+		"PlyerXIA":
+			modo_de_jogo = 2
+		"IAXIA":
+			modo_de_jogo = 3
 
 func _on_button_dificuldade_pressed(botao: TextureButton) -> void:
 	pass
