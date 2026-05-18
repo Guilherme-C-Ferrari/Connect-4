@@ -8,7 +8,6 @@ var finalizar_ia: bool = false
 
 func definir_melhor_jogada(tabuleiro: Tabuleiro, jogador: String, profundidade_maxima: int) -> Jogada:
 	var jogada: Jogada = minimax(tabuleiro, jogador, jogador, profundidade_maxima, 0, -INFINITO, INFINITO)
-	print("-------------------------------------------")
 	return jogada
 
 func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: String, profundidade_maxima: int, profundidade: int, alfa: int, beta: int) -> Jogada:
@@ -39,8 +38,8 @@ func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: Strin
 		var jogada: Jogada = minimax(novo_tabuleiro, jogador_inicial, novo_jogador, profundidade_maxima, profundidade + 1, alfa, beta)
 		jogada.movimento = movimento
 		
-		if profundidade == 0:
-			print("JOGADA: ", jogada.movimento+1, " Avaliacao: ", jogada.avaliacao)
+		#if profundidade == 0:
+			#print("JOGADA: ", jogada.movimento+1, " Avaliacao: ", jogada.avaliacao)
 		
 		if tabuleiro.jogador_atual() == jogador_atual:
 			if jogada.avaliacao > melhor_pontuacao:

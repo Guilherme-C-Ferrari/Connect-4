@@ -91,6 +91,7 @@ func finalizar_jogada_ia(movimento: int) -> void:
 func avaliar_final(jogador: String) -> void:
 	var avaliacao: float = jogo.avaliar(jogador)
 	if abs(avaliacao) == 1000:
+		label_principal.add_theme_color_override("font_color", Color.from_string("FFD700", Color.YELLOW))
 		if jogador == "R":
 			fim_jogo("Roxo\nVenceu!")
 		elif jogador == "A":
@@ -121,6 +122,7 @@ func reset_game() -> void:
 	
 	label_principal.text = ""
 	label_principal.add_theme_font_size_override("font_size", 20)
+	label_principal.add_theme_color_override("font_color", Color.WHITE)
 	jogo = Tabuleiro.new()
 	get_tree().call_group("Fichas", "queue_free")
 	get_tree().call_group("Colunas", "reset")
@@ -128,8 +130,8 @@ func reset_game() -> void:
 
 func iniciar_novo_jogo() -> void:
 	dificuldade_ia = nova_dificuldade_ia
-	if modo_de_jogo == 3 or (modo_de_jogo == 1 and comecoIA == 2):
-		vezIA = true
+	if (modo_de_jogo == 1 and comecoIA == 2) or modo_de_jogo == 3:
+		if modo_de_jogo == 3 : vezIA = true
 		iniciar_jogada_IA()
 	else:
 		habilitar_botoes()
@@ -189,6 +191,8 @@ func _on_button_comeco_pressed(botao: TextureButton) -> void:
 	match botao.name:
 		"Primeiro":
 			comecoIA = 1
+			vezIA = false
 		"Segundo":
 			comecoIA = 2
+			vezIA = true
 	painel_comeco.visible = false;
