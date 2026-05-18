@@ -167,6 +167,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PanelDeCreditosContainer" type="CenterContainer" parent="." unique_id=1968163956]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
