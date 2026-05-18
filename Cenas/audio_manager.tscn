@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bwpm38tbvdj53"]
 
 [ext_resource type="Script" uid="uid://ch46omttu1hq5" path="res://Scripts/AudioManager.gd" id="1_86yo6"]
+[ext_resource type="AudioStream" uid="uid://m3hwrkm5c5sj" path="res://Assets/Sons/Músicas/Astral-Float.ogg" id="2_30egw"]
 
 [node name="Node" type="Node" unique_id=1301161954]
 script = ExtResource("1_86yo6")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1095176148]
+stream = ExtResource("2_30egw")
+autoplay = true
+bus = &"Musica"

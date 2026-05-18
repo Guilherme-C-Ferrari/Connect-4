@@ -167,7 +167,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PanelDeCreditosContainer" type="CenterContainer" parent="." unique_id=1968163956]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -265,6 +264,34 @@ text = "Arte e Animação - Aléxis Ricardo Agra"
 [node name="Label2" type="Label" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=123675171]
 layout_mode = 2
 text = "Desenvolvimento e Game Design - Guilherme Carvalho Ferrari"
+
+[node name="Divisor" type="ReferenceRect" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=1732604640]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+border_color = Color(1, 1, 1, 0)
+
+[node name="Label3" type="Label" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=383572183]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_06ruf")
+text = "Outros Assets Usados"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Divisor2" type="ReferenceRect" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=1021916066]
+layout_mode = 2
+border_color = Color(1, 1, 1, 0)
+
+[node name="Label4" type="Label" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=1357762464]
+layout_mode = 2
+text = "Background Music - 8-bit Space Music By Kyra's Voice"
+
+[node name="Label5" type="Label" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=1981110846]
+layout_mode = 2
+text = "SFX - By freesound_community e ShidenBeatsMusic"
+
+[node name="Label6" type="Label" parent="PanelDeCreditosContainer/PanelContainer/NinePatchRect/MarginContainer2/VBoxContainer" unique_id=952991635]
+layout_mode = 2
+text = "Fonte - NiseSegaSonic"
 
 [connection signal="pressed" from="ContainerTituloEBotoes/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
 [connection signal="pressed" from="ContainerTituloEBotoes/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]

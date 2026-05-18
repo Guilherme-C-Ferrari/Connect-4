@@ -61,8 +61,10 @@ func criar_ficha_fisica(coluna_index: int, jogador: String) -> void:
 	
 	nova_ficha.get_node("FichaRoxa").visible = (jogador == jogo.JOGADOR_ROXO)
 	nova_ficha.get_node("FichaAzul").visible = (jogador == jogo.JOGADOR_AZUL)
+	var som_sorteado = [AudioManager.SOM_FICHA_1, AudioManager.SOM_FICHA_2].pick_random()
 	
 	container_fichas.add_child(nova_ficha)
+	AudioManager.play_sound_effect(som_sorteado, "SFX")
 
 func jogar(movimento: int) -> bool:
 	if jogo.fazer_jogada(movimento):
