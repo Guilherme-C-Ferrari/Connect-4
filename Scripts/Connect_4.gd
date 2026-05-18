@@ -3,6 +3,8 @@ extends Node2D
 @onready var botoes = $GameContainer/TabuleiroFisico/HBoxContainer.get_children()
 @onready var container_fichas = $GameContainer/FichasContainer
 @onready var label_principal = $UI/MenuTabuleiro/%LabelPrincipal
+@onready var indicador_azul = $UI/MenuTabuleiro/%TurnoAzul
+@onready var indicador_roxo = $UI/MenuTabuleiro/%TurnoRoxo
 @onready var painel_modo = $UI/MenuTabuleiro/PanelDeModoContainer
 @onready var painel_dificuldade = $UI/MenuTabuleiro/PanelDeDificuldadeContainer
 @onready var painel_comeco = $UI/MenuTabuleiro/PanelDeComecoContainer
@@ -18,8 +20,9 @@ var jogo := Tabuleiro.new()
 var ia := Minimax.new()
 
 var modo_de_jogo : int = 1 # 1 = P x P, 2 = P X IA, 3 = IA X IA
-var nova_dificuldade_ia : int = 3
+var novo_modo_de_jogo : int = 1
 var dificuldade_ia : int = 3 # 1 = fácil, 2 = médio, 3 = difícil
+var nova_dificuldade_ia : int = 3
 var comecoIA : int = 1 # 1 = player começa, 2 = IA começa
 var vezIA : bool = false
 
@@ -35,6 +38,7 @@ func _on_coluna_pressionada(coluna: int) -> void:
 	var jogador = jogo.jogador_atual()
 	if jogar(coluna):
 		criar_ficha_fisica(coluna, jogador)
+		alternar_indicador_turno()
 		avaliar_final(jogador)
 	if modo_de_jogo == 1:
 		alternar_vez_IA()
@@ -43,6 +47,7 @@ func _on_coluna_pressionada_ia(coluna: int) -> void:
 	var jogador = jogo.jogador_atual()
 	if jogar(coluna):
 		criar_ficha_fisica(coluna, jogador)
+		alternar_indicador_turno()
 		avaliar_final(jogador)
 	if modo_de_jogo == 1:
 		alternar_vez_IA()
@@ -68,6 +73,15 @@ func jogar(movimento: int) -> bool:
 func alternar_vez_IA() -> void:
 	self.vezIA = not vezIA
 
+func alternar_indicador_turno() -> void:
+	var jogador = jogo.jogador_atual()
+	if jogador == jogo.JOGADOR_ROXO:
+		indicador_azul.visible = false
+		indicador_roxo.visible = true
+	elif jogador == jogo.JOGADOR_AZUL:
+		indicador_roxo.visible = false
+		indicador_azul.visible = true
+
 func calcular_jogada_maquina() -> void:
 	ia.finalizar_ia = false
 	var jogador = jogo.jogador_atual()
@@ -91,6 +105,8 @@ func finalizar_jogada_ia(movimento: int) -> void:
 func avaliar_final(jogador: String) -> void:
 	var avaliacao: float = jogo.avaliar(jogador)
 	if abs(avaliacao) == 1000:
+		indicador_azul.visible = false
+		indicador_roxo.visible = false
 		label_principal.add_theme_color_override("font_color", Color.from_string("FFD700", Color.YELLOW))
 		if jogador == "R":
 			fim_jogo("Roxo\nVenceu!")
@@ -120,20 +136,24 @@ func reset_game() -> void:
 		ia.finalizar_ia = true
 		thread.wait_to_finish()
 	
+	indicador_azul.visible = false
+	indicador_roxo.visible = false
 	label_principal.text = ""
 	label_principal.add_theme_font_size_override("font_size", 20)
 	label_principal.add_theme_color_override("font_color", Color.WHITE)
+	
 	jogo = Tabuleiro.new()
 	get_tree().call_group("Fichas", "queue_free")
 	get_tree().call_group("Colunas", "reset")
 	iniciar_novo_jogo()
 
 func iniciar_novo_jogo() -> void:
-	dificuldade_ia = nova_dificuldade_ia
+	alternar_indicador_turno()
 	if (modo_de_jogo == 1 and comecoIA == 2) or modo_de_jogo == 3:
 		if modo_de_jogo == 3 : vezIA = true
 		iniciar_jogada_IA()
 	else:
+		vezIA = false
 		habilitar_botoes()
 
 func iniciar_jogada_IA() -> void:
@@ -150,6 +170,8 @@ func iniciar_thread() -> void:
 func _on_button_pressed(botao: TextureButton) -> void:
 	match botao.name:
 		"BotaoNovoJogo":
+			modo_de_jogo = novo_modo_de_jogo
+			dificuldade_ia = nova_dificuldade_ia
 			if modo_de_jogo == 1:
 				painel_comeco.visible = true;
 			else:
@@ -167,14 +189,14 @@ func _on_button_pressed(botao: TextureButton) -> void:
 func _on_button_modo_pressed(botao: TextureButton) -> void:
 	match botao.name:
 		"PlayerXIA":
-			modo_de_jogo = 1
+			novo_modo_de_jogo = 1
 		"PlayerXPlayer":
-			modo_de_jogo = 2
+			novo_modo_de_jogo = 2
 		"IAXIA":
-			modo_de_jogo = 3
+			novo_modo_de_jogo = 3
 	
 	painel_modo.visible = false; 
-	if modo_de_jogo != 2:
+	if novo_modo_de_jogo != 2:
 		painel_dificuldade.visible = true; 
 
 func _on_button_dificuldade_pressed(botao: TextureButton) -> void:

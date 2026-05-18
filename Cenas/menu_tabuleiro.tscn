@@ -630,6 +630,52 @@ theme_override_constants/margin_bottom = 25
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=591472859]
 layout_mode = 2
 
+[node name="TurnoAzul" type="CenterContainer" parent="MarginContainer/PanelContainer" unique_id=1211604353]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/TurnoAzul" unique_id=1750865881]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/TurnoAzul/VBoxContainer" unique_id=1769303440]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("9_fiyln")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/TurnoAzul/VBoxContainer" unique_id=1501593663]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Turno Do Azul"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurnoRoxo" type="CenterContainer" parent="MarginContainer/PanelContainer" unique_id=393851289]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/TurnoRoxo" unique_id=484573914]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/TurnoRoxo/VBoxContainer" unique_id=2073037302]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_pbp2j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/TurnoRoxo/VBoxContainer" unique_id=1200297167]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vpgfy")
+theme_override_font_sizes/font_size = 15
+text = "Turno Do Roxo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LabelPrincipal" type="Label" parent="MarginContainer/PanelContainer" unique_id=607639723]
 unique_name_in_owner = true
 layout_mode = 2
