@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dap6qfcabjepl"
-path="res://.godot/imported/NiseSegaSonic.TTF-8d32a7567bfdd0c61fc66f96bcf7d713.fontdata"
+path="res://.godot/imported/NiseSegaSonic.TTF-e6677e37822eb096373e30502023d1ff.fontdata"
 
 [deps]
 
-source_file="res://Fontes/NiseSegaSonic.TTF"
-dest_files=["res://.godot/imported/NiseSegaSonic.TTF-8d32a7567bfdd0c61fc66f96bcf7d713.fontdata"]
+source_file="res://Assets/Fontes/NiseSegaSonic.TTF"
+dest_files=["res://.godot/imported/NiseSegaSonic.TTF-e6677e37822eb096373e30502023d1ff.fontdata"]
 
 [params]
 

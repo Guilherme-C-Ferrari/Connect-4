@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c1gaxydc216s6" path="res://Assets/BotaoPressed.png" id="4_06ruf"]
 [ext_resource type="Texture2D" uid="uid://dwu1dn08yp4hc" path="res://Assets/BotaoHover.png" id="5_3fhxf"]
 [ext_resource type="Texture2D" uid="uid://dkmxekxxc22iu" path="res://Assets/BotaoDesativado.png" id="6_hmei6"]
-[ext_resource type="FontFile" uid="uid://dap6qfcabjepl" path="res://Fontes/NiseSegaSonic.TTF" id="7_06ruf"]
+[ext_resource type="FontFile" uid="uid://dap6qfcabjepl" path="res://Assets/Fontes/NiseSegaSonic.TTF" id="7_06ruf"]
 
 [node name="MenuInicial" type="Control" unique_id=1149184582]
 layout_mode = 3
