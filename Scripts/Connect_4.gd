@@ -18,7 +18,8 @@ var jogo := Tabuleiro.new()
 var ia := Minimax.new()
 
 var modo_de_jogo : int = 1 # 1 = P x P, 2 = P X IA, 3 = IA X IA
-var dificuldade_ia : int = 1 # 1 = fácil, 2 = médio, 3 = difícil
+var nova_dificuldade_ia : int = 3
+var dificuldade_ia : int = 3 # 1 = fácil, 2 = médio, 3 = difícil
 var comecoIA : int = 1 # 1 = player começa, 2 = IA começa
 var vezIA : bool = false
 
@@ -70,7 +71,14 @@ func alternar_vez_IA() -> void:
 func calcular_jogada_maquina() -> void:
 	ia.finalizar_ia = false
 	var jogador = jogo.jogador_atual()
-	var jogada_ia : Jogada = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 7)
+	var jogada_ia: Jogada
+	match dificuldade_ia:
+		1:
+			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 3)
+		2:
+			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 5)
+		3:
+			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 7)
 	call_deferred("finalizar_jogada_ia", jogada_ia.movimento)
 
 func finalizar_jogada_ia(movimento: int) -> void:
@@ -119,6 +127,7 @@ func reset_game() -> void:
 	iniciar_novo_jogo()
 
 func iniciar_novo_jogo() -> void:
+	dificuldade_ia = nova_dificuldade_ia
 	if modo_de_jogo == 3 or (modo_de_jogo == 1 and comecoIA == 2):
 		vezIA = true
 		iniciar_jogada_IA()
@@ -128,10 +137,14 @@ func iniciar_novo_jogo() -> void:
 func iniciar_jogada_IA() -> void:
 	if vezIA:
 		desabilitar_botoes()
-		if thread and thread.is_alive():
-			thread.wait_to_finish()
-		thread = Thread.new()
-		thread.start(calcular_jogada_maquina.bind())
+		if thread:
+			if thread.is_alive():
+				thread.wait_to_finish()
+		call_deferred("iniciar_thread")
+
+func iniciar_thread() -> void:
+	thread = Thread.new()
+	thread.start(calcular_jogada_maquina.bind())
 
 func _on_button_pressed(botao: TextureButton) -> void:
 	match botao.name:
@@ -166,11 +179,11 @@ func _on_button_modo_pressed(botao: TextureButton) -> void:
 func _on_button_dificuldade_pressed(botao: TextureButton) -> void:
 	match botao.name:
 		"Facil":
-			dificuldade_ia = 1
+			nova_dificuldade_ia = 1
 		"Medio":
-			dificuldade_ia = 2
+			nova_dificuldade_ia = 2
 		"Dificil":
-			dificuldade_ia = 3
+			nova_dificuldade_ia = 3
 	painel_dificuldade.visible = false; 
 
 func _on_button_comeco_pressed(botao: TextureButton) -> void:
