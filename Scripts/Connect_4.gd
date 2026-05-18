@@ -137,12 +137,11 @@ func iniciar_novo_jogo() -> void:
 func iniciar_jogada_IA() -> void:
 	if vezIA:
 		desabilitar_botoes()
-		if thread:
-			if thread.is_alive():
-				thread.wait_to_finish()
 		call_deferred("iniciar_thread")
 
 func iniciar_thread() -> void:
+	if thread and thread.is_started():
+		thread.wait_to_finish()
 	thread = Thread.new()
 	thread.start(calcular_jogada_maquina.bind())
 
@@ -157,7 +156,7 @@ func _on_button_pressed(botao: TextureButton) -> void:
 			label_principal.text = ""
 			painel_modo.visible = true; 
 		"VoltarAoMenu":
-			if thread and thread.is_alive():
+			if thread and thread.is_started():
 				ia.finalizar_ia = true
 				thread.wait_to_finish()
 			var cena_carregada = ResourceLoader.load_threaded_get(MENU_INICIAL)
