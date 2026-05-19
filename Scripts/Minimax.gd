@@ -36,6 +36,7 @@ func minimax(tabuleiro: Tabuleiro, jogador_inicial: String, jogador_atual: Strin
 		var novo_tabuleiro: Tabuleiro = tabuleiro.movimentar(movimento, jogador_atual)
 		var novo_jogador: String = tabuleiro.JOGADOR_ROXO if jogador_atual == tabuleiro.JOGADOR_AZUL else tabuleiro.JOGADOR_AZUL
 		var jogada: Jogada = minimax(novo_tabuleiro, jogador_inicial, novo_jogador, profundidade_maxima, profundidade + 1, alfa, beta)
+		if jogada == null: break
 		jogada.movimento = movimento
 		
 		#if profundidade == 0:
