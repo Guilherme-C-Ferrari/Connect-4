@@ -91,12 +91,28 @@ func calcular_jogada_maquina() -> void:
 	var jogada_ia: Jogada
 	match dificuldade_ia:
 		1:
-			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 2)
+			if randf() < 0.7:
+				jogada_ia = Jogada.new(calcular_jogada_aleatoria(), 0)
+			else:
+				jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 2)
 		2:
-			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 5)
+			if randf() < 0.2:
+				jogada_ia = Jogada.new(calcular_jogada_aleatoria(), 0)
+			else:
+				jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 5)
 		3:
 			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 7)
 	call_deferred("finalizar_jogada_ia", jogada_ia.movimento)
+
+func calcular_jogada_aleatoria() -> int:
+	print("a")
+	var colunas_validas : Array = []
+	for i in range(jogo.COLUNAS):
+		if jogo.valida_jogada(i):
+			colunas_validas.append(i)
+	if colunas_validas.size() > 0:
+		return colunas_validas.pick_random()
+	return 0
 
 func finalizar_jogada_ia(movimento: int) -> void:
 	if thread.is_alive():
