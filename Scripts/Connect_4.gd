@@ -105,7 +105,6 @@ func calcular_jogada_maquina() -> void:
 	call_deferred("finalizar_jogada_ia", jogada_ia.movimento)
 
 func calcular_jogada_aleatoria() -> int:
-	print("a")
 	var colunas_validas : Array = []
 	for i in range(jogo.COLUNAS):
 		if jogo.valida_jogada(i):
