@@ -21,11 +21,11 @@ var ia := Minimax.new()
 
 var estado_jogo : int = 1 # 1 = Ativo, 2 = Finalizado
 var modo_de_jogo : int = 1 # 1 = P x P, 2 = P X IA, 3 = IA X IA
-var novo_modo_de_jogo : int = 1
-var dificuldade_ia : int = 3 # 1 = fácil, 2 = médio, 3 = difícil
-var nova_dificuldade_ia : int = 3
-var comecoIA : int = 1 # 1 = player começa, 2 = IA começa
-var vezIA : bool = false
+var novo_modo_de_jogo : int = 1 # Captura o modo de jogo configurado pelo jogador para a próxima partida
+var dificuldade_ia : int = 3 # 1 = Fácil, 2 = Médio, 3 = Difícil
+var nova_dificuldade_ia : int = 3 # Captura a dificuldade da IA configurada pelo jogador para a próxima partida
+var comecoIA : int = 1 # 1 = Player começa, 2 = IA começa
+var vezIA : bool = false # Define se é o turno da IA ou não
 
 func _ready() -> void:
 	ResourceLoader.load_threaded_request(MENU_INICIAL)
@@ -85,6 +85,17 @@ func alternar_indicador_turno() -> void:
 		indicador_roxo.visible = false
 		indicador_azul.visible = true
 
+func iniciar_jogada_IA() -> void:
+	if vezIA and estado_jogo == 1:
+		desabilitar_botoes()
+		call_deferred("iniciar_thread")
+
+func iniciar_thread() -> void:
+	if thread and thread.is_started():
+		thread.wait_to_finish()
+	thread = Thread.new()
+	thread.start(calcular_jogada_maquina.bind())
+
 func calcular_jogada_maquina() -> void:
 	ia.finalizar_ia = false
 	var jogador = jogo.jogador_atual()
@@ -138,17 +149,14 @@ func fim_jogo(resultado: String) -> void:
 	label_principal.text = resultado
 	desabilitar_botoes()
 
-func habilitar_botoes() -> void:
-	if label_principal.text == "Roxo\nVenceu!" or label_principal.text == "Azul\nVenceu!":
-		return
-	for i in range(botoes.size()):
-		var botao = botoes[i]
-		if jogo.valida_jogada(i):
-			botao.disabled = false
-
-func desabilitar_botoes() -> void:
-	for botao in botoes:
-		botao.disabled = true
+func iniciar_novo_jogo() -> void:
+	alternar_indicador_turno()
+	if (modo_de_jogo == 1 and comecoIA == 2) or modo_de_jogo == 3:
+		if modo_de_jogo == 3 : vezIA = true
+		iniciar_jogada_IA()
+	else:
+		vezIA = false
+		habilitar_botoes()
 
 func reset_game() -> void:
 	if thread and thread.is_alive():
@@ -168,25 +176,17 @@ func reset_game() -> void:
 	
 	iniciar_novo_jogo()
 
-func iniciar_novo_jogo() -> void:
-	alternar_indicador_turno()
-	if (modo_de_jogo == 1 and comecoIA == 2) or modo_de_jogo == 3:
-		if modo_de_jogo == 3 : vezIA = true
-		iniciar_jogada_IA()
-	else:
-		vezIA = false
-		habilitar_botoes()
+func habilitar_botoes() -> void:
+	if label_principal.text == "Roxo\nVenceu!" or label_principal.text == "Azul\nVenceu!":
+		return
+	for i in range(botoes.size()):
+		var botao = botoes[i]
+		if jogo.valida_jogada(i):
+			botao.disabled = false
 
-func iniciar_jogada_IA() -> void:
-	if vezIA and estado_jogo == 1:
-		desabilitar_botoes()
-		call_deferred("iniciar_thread")
-
-func iniciar_thread() -> void:
-	if thread and thread.is_started():
-		thread.wait_to_finish()
-	thread = Thread.new()
-	thread.start(calcular_jogada_maquina.bind())
+func desabilitar_botoes() -> void:
+	for botao in botoes:
+		botao.disabled = true
 
 func _on_button_pressed(botao: TextureButton) -> void:
 	match botao.name:
