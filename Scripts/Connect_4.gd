@@ -19,6 +19,7 @@ var thread: Thread
 var jogo := Tabuleiro.new()
 var ia := Minimax.new()
 
+var estado_jogo : int = 1 # 1 = Ativo, 2 = Finalizado
 var modo_de_jogo : int = 1 # 1 = P x P, 2 = P X IA, 3 = IA X IA
 var novo_modo_de_jogo : int = 1
 var dificuldade_ia : int = 3 # 1 = fácil, 2 = médio, 3 = difícil
@@ -90,7 +91,7 @@ func calcular_jogada_maquina() -> void:
 	var jogada_ia: Jogada
 	match dificuldade_ia:
 		1:
-			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 3)
+			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 2)
 		2:
 			jogada_ia = ia.definir_melhor_jogada(jogo.duplicate(true), jogador, 5)
 		3:
@@ -107,6 +108,7 @@ func finalizar_jogada_ia(movimento: int) -> void:
 func avaliar_final(jogador: String) -> void:
 	var avaliacao: float = jogo.avaliar(jogador)
 	if abs(avaliacao) == 1000:
+		estado_jogo = 2
 		indicador_azul.visible = false
 		indicador_roxo.visible = false
 		label_principal.add_theme_color_override("font_color", Color.from_string("FFD700", Color.YELLOW))
@@ -144,9 +146,11 @@ func reset_game() -> void:
 	label_principal.add_theme_font_size_override("font_size", 20)
 	label_principal.add_theme_color_override("font_color", Color.WHITE)
 	
+	estado_jogo = 1
 	jogo = Tabuleiro.new()
 	get_tree().call_group("Fichas", "queue_free")
 	get_tree().call_group("Colunas", "reset")
+	
 	iniciar_novo_jogo()
 
 func iniciar_novo_jogo() -> void:
@@ -159,7 +163,7 @@ func iniciar_novo_jogo() -> void:
 		habilitar_botoes()
 
 func iniciar_jogada_IA() -> void:
-	if vezIA:
+	if vezIA and estado_jogo == 1:
 		desabilitar_botoes()
 		call_deferred("iniciar_thread")
 
