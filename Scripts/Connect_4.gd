@@ -193,6 +193,8 @@ func _on_button_pressed(botao: TextureButton) -> void:
 		"BotaoNovoJogo":
 			modo_de_jogo = novo_modo_de_jogo
 			dificuldade_ia = nova_dificuldade_ia
+			painel_modo.visible = false; 
+			painel_dificuldade.visible = false; 
 			if modo_de_jogo == 1:
 				painel_comeco.visible = true;
 			else:
